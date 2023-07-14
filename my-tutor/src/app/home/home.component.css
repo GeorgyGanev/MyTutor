@@ -92,6 +92,13 @@
 
 .latest-tutors p {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: #676969;
+}
+
+.cards-list {
+    padding: 2em 0;
+    display: flex;
+    gap: 1em;
+    justify-content: space-around;
 }
