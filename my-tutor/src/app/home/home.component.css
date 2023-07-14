@@ -1,0 +1,102 @@
+/* img {
+    width: 100%;
+    height: auto;
+} */
+
+
+.home-wrapper {
+
+}
+
+.site  {
+    background-color: #a3c7cd;
+    background-image: url(https://images.unsplash.com/photo-1525921429624-479b6a26d84d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTExfHxzdHVkZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    position: relative;
+}
+
+.site::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.content {
+   position: relative;
+   top: 100px;
+   left: 100px;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
+.content h3 {
+    color: #676969;
+    margin-bottom: 0.5em;
+}
+
+.content p {
+    max-width: 35em;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.content .buttons {
+    display: flex;
+    gap: 1em;
+    margin-top: 2em;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.content .buttons a.find {
+    text-decoration: none;
+    background-color: #4a9c82;
+    border: 1px solid #4a9c82;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+}
+
+.content .buttons a.find:hover {
+    border: 2px solid white;
+}
+
+.content .buttons a.search {
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid white;
+    color: #fff;
+    padding: 0.5em 1em;
+}
+
+.content .buttons a.search:hover {
+    background-color: #fff;
+    color: black;
+}
+
+/* Latest Tutors section */
+
+.latest-tutors {
+    text-align: center;
+}
+
+.latest-tutors h2 {
+    font-weight: 500;
+    font-size: 2em;
+    margin: 0;
+    padding: 1em 0 0.5em 0;
+}
+
+.latest-tutors p {
+    margin: 0;
+    font-size: 1.5em;
+    color: #676969;
+}

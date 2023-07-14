@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header,
+.header .contact,
+.header .contact *,
+.header .nav {
+    display: flex;
+}
+
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    padding: 1em 2em;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.left {
+    font-size: 1.5em;
+}
+
+.center a {
+    width: 100%;
+    padding: 0.5em 1em;
+    background-color: #499c82;
+    border-radius: 0.5em;
+    color: white;
+}
+
+.main-nav .right {
+    display: flex;
+    gap: 1em;
+    
+}
+
+.right a {
+    border: 2px solid #499c82;
+    padding: 0.5em 1em;
+}
+
+
+
