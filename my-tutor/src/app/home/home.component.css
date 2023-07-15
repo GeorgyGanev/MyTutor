@@ -99,6 +99,7 @@
 .cards-list {
     padding: 2em 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
-    justify-content: space-around;
+   justify-content: center;
 }
