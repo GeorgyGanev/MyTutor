@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
 
+
+  register(form: NgForm) {
+
+    console.log(form.value);
+    
+  }
 }

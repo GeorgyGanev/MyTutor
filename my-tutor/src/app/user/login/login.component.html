@@ -1,12 +1,12 @@
 <div class="container">
-    <form class="form">
+    <form class="form" #form="ngForm" (ngSubmit)="login(form)">
         <h2>Login</h2>
         <div class="input-fields">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Password">
+            <input type="text" placeholder="Email" name="email" ngModel />
+            <input type="text" placeholder="Password" name="password" #passwordInput="ngModel" ngModel />
         </div>
         <div class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" name="showPassword">
             <span>Show Password</span>
         </div>
         <button>LOG IN</button>
