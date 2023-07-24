@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { TutorModule } from './tutor/tutor.module';
 import { UserModule } from './user/user.module';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { UserModule } from './user/user.module';
     TutorModule,
     UserModule
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

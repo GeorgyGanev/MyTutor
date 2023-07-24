@@ -22,7 +22,7 @@ export class AppInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
 
-    if (request.url.startsWith('api')){
+    if (request.url.startsWith('/api')){
       request = request.clone({
         url: request.url.replace('/api', apiUrl),
         withCredentials: true,

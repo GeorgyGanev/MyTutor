@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,10 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent {
 
+  constructor(private userService: UserService, private router: Router){ }
 
   register(form: NgForm) {
 
     console.log(form.value);
+
+    const { username, email, password} = form.value;
+
+    this.userService.register(username, email, password)
+      .subscribe(() => this.router.navigate(['/']));
     
   }
 }

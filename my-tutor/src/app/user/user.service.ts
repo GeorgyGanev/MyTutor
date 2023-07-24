@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { IUser } from 'src/types/user';
 
 @Injectable({
@@ -28,11 +28,14 @@ export class UserService {
   register(
     username: string,
     email: string,
-    password: string,
-    rePassword: string
+    password: string
   ){
-    
+     return this.http.post<IUser>('/api/users', {
+      username,
+      email,
+      password
+    })
+    .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  
 }

@@ -9,8 +9,11 @@
             <a href="#">Find a Tutor</a>
         </div> -->
         <div class="right">
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/signup">Sign Up</a></li>
+            <li ><a routerLink="/login">Login</a></li>
+            <li *ngIf="isLogged"><a routerLink="/signup">Sign Up</a></li>
         </div>
     </nav>
+
 </header>
+
+
