@@ -10,6 +10,11 @@ export class HeaderComponent {
 
   constructor(private userService: UserService) { }
 
-  isLogged = this.userService.isLogged;
-  user = this.userService.user;
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
+  
+  get username(): string {
+    return this.userService.user?.username || '';
+  }
 }

@@ -14,8 +14,6 @@ export class SignupComponent {
 
   register(form: NgForm) {
 
-    console.log(form.value);
-
     const { username, email, password} = form.value;
 
     this.userService.register(username, email, password)

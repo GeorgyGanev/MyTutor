@@ -21,6 +21,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { 
     this.subscription = this.user$.subscribe((user) => {
+      console.log(user);
+      
       this.user = user;
     })
   }
@@ -31,11 +33,21 @@ export class UserService {
     password: string
   ){
      return this.http.post<IUser>('/api/users', {
-      username,
       email,
-      password
+      password,
+      username
     })
-    .pipe(tap((user) => this.user$$.next(user)));
+    .pipe(tap((user) => {
+        this.user$$.next(user);
+            
+      }));
+  }
+
+  login(email: string, password: string){
+    return this.http.get<IUser>(`/api/login?email=${email}&password=${password}`)
+    .pipe(tap((user) => {
+      this.user$$.next(user);      
+    }))
   }
 
 }

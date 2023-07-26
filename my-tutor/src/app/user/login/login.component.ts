@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,18 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent {
   @ViewChild('passwordInput') passwordInput = undefined;
 
+  constructor(private userService: UserService, private router: Router){ }
+
   login(form: NgForm) {
    
+    const {email, password} = form.value;
     form.reset();
 
+    this.userService.login(email, password).subscribe((user) => {
+    
+      this.router.navigate(['/']);
+    })
 
   }
-
 
 }
