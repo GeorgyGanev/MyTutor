@@ -19,7 +19,7 @@ export class LoginComponent {
     form.reset();
 
     this.userService.login(email, password).subscribe((user) => {
-    
+      localStorage.setItem('[user]', JSON.stringify(user))
       this.router.navigate(['/']);
     })
 

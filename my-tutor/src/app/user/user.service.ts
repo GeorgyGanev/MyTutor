@@ -1,17 +1,19 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { IUser } from 'src/types/user';
+import { User } from 'src/types/user-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private user$$ = new BehaviorSubject<IUser | undefined>(undefined);
+  private user$$ = new BehaviorSubject<IUser | User | undefined>(undefined);
   public user$ = this.user$$.asObservable();
 
-  user: IUser | undefined;
+  user: IUser | User | undefined;
 
   get isLogged(): boolean{
     return !!this.user;
@@ -39,8 +41,8 @@ export class UserService {
     })
     .pipe(tap((user) => {
         this.user$$.next(user);
-            
       }));
+
   }
 
   login(email: string, password: string){
@@ -50,6 +52,31 @@ export class UserService {
     }))
   }
 
-  
+  getUserProfile(userId: string){
+    return this.http
+    .get<IUser>(`/api/users/${userId}`)
+    .pipe(tap((user) => {
+      this.user$$.next(user)
+    }))
+  }
 
+  autoLogin(){
+
+    const userData =  localStorage.getItem('[user]');
+
+    if (!userData) {
+      return;
+    }
+
+    const data = JSON.parse(userData);
+    const loggedUser = new User(data.email, data.username, data.isTutor, data.objectId, data._sessionToken);
+
+    if (loggedUser.token){
+      this.user$$.next(loggedUser);
+    }
+  }
+
+  logOut(){
+    return this.http.post('/api/logout', {})
+  }
 }

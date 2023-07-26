@@ -8,7 +8,9 @@
         <!-- <div class="center">
             <a href="#">Find a Tutor</a>
         </div> -->
-        <div *ngIf="isLogged">Hello, {{username}}</div>
+        <div *ngIf="isLogged" class="right">
+            <a routerLink="/registration">Become a Tutor</a>
+        </div>
         <div *ngIf="!isLogged" class="right">
             <li><a routerLink="/login">Login</a></li>
             <li><a routerLink="/signup">Sign Up</a></li>

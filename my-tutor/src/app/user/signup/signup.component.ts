@@ -17,7 +17,9 @@ export class SignupComponent {
     const { username, email, password} = form.value;
 
     this.userService.register(username, email, password)
-      .subscribe(() => this.router.navigate(['/']));
+      .subscribe((user) => {
+        localStorage.setItem('[user]', JSON.stringify(user));
+        });
     
   }
 }

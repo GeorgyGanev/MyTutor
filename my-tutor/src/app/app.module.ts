@@ -11,12 +11,14 @@ import { TutorModule } from './tutor/tutor.module';
 import { UserModule } from './user/user.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AuthenticateComponent
   ],
   imports: [
     BrowserModule,
