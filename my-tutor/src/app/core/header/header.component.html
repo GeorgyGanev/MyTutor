@@ -9,7 +9,8 @@
             <a href="#">Find a Tutor</a>
         </div> -->
         <div *ngIf="isLogged" class="right">
-            <a routerLink="/registration">Become a Tutor</a>
+            <a *ngIf="!isTutor" routerLink="/registration">Become a Tutor</a>
+            <a> Hello, {{username}}</a>
             <a (click)="logout()">Logout</a>
         </div>
         <div *ngIf="!isLogged" class="right">

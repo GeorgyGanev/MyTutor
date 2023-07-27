@@ -19,13 +19,8 @@ export class HomeComponent implements OnInit {
     this.tutorService.getTutors().subscribe((response: any) => {
       
       this.tutors = response.results;
-      
-      console.log(this.tutors);
-      
-      
+          
     })
   }
-
-  
   
 }

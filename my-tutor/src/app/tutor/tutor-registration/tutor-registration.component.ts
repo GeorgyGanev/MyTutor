@@ -23,6 +23,7 @@ export class TutorRegistrationComponent {
     let subjectsArr = form.value.subjects.split(', ');
     
     let pointerId: any = this.userService.user?.objectId;
+    let sessionToken: any = this.userService.user?._sessionToken;
     
     let pointerField: UserPointer = {
       __type: 'Pointer',
@@ -32,9 +33,18 @@ export class TutorRegistrationComponent {
   
     let tutorData = {...form.value, subjects: subjectsArr}  
   
-    this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
+    this.tutorService.registerTutor(tutorData, pointerField).subscribe( {
+      next: () => {
+        this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe(() => {
+          
+        });
+        this.router.navigate(['/'])
+      },
+      error: (error) => {
+        console.log(error);
+        
+      }
       
-      this.router.navigate(['/'])
     });
      
 

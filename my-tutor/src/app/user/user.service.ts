@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
@@ -70,5 +70,13 @@ export class UserService {
     this.user = undefined;
   }
 
+  editUser(data: any, userId: string, sessionToken: string){
+    const headers = new HttpHeaders()
+    .set('X-Parse-Application-Id', '7AUaYdnFkPeD75hcEXwcR6ZrFaNXuTUe86He20Cy')
+    .set('X-Parse-REST-API-Key', 'gn2DLKfXS5boKxcaINy7O4yo307Y4DWYJgedbQIY')
+    .set('Content-Type', 'application/json')
+    .set('X-Parse-Session-Token', sessionToken)
+    return this.http.put(`https://parseapi.back4app.com/users/${userId}`, data, {headers})
+  }
 
 }

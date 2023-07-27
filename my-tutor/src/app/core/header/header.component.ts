@@ -14,6 +14,10 @@ export class HeaderComponent {
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
+
+  get isTutor(): boolean | undefined {
+    return this.userService.user?.isTutor;
+  }
   
   get username(): string {
     return this.userService.user?.username || '';
