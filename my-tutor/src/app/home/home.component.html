@@ -17,12 +17,10 @@
         <p>See some of our latest tutors</p>
 
         <div class="cards-list">
-            <app-tutor-short-card />
-            <app-tutor-short-card />
-            <app-tutor-short-card />
-            <app-tutor-short-card />
-            <app-tutor-short-card />
-    
+            <div *ngFor="let tutor of tutors">
+                <app-tutor-short-card [tutor]="tutor"/>
+            </div>
+         
         </div>
     </div>
 

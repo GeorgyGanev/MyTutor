@@ -1,13 +1,31 @@
-import { Component } from '@angular/core';
-import { UserService } from '../user/user.service';
+import { Component, OnInit } from '@angular/core';
+import { TutorService } from '../tutor/tutor.service';
+import { Tutor } from 'src/types/tutor-model';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(private userServie: UserService) { }
+  constructor(private tutorService: TutorService) { }
 
+
+  tutors: Tutor[] = [];
+
+  ngOnInit(): void {
+    this.tutorService.getTutors().subscribe((response: any) => {
+      
+      this.tutors = response.results;
+      
+      console.log(this.tutors);
+      
+      
+    })
+  }
+
+  
+  
 }

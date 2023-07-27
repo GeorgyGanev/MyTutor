@@ -16,4 +16,9 @@ export class TutorService {
     return this.http.post<Tutor>('/api/classes/tutor', {...tutorData, userId: id } )
     
   }
+
+
+  getTutors(){
+    return this.http.get<Tutor[]>('/api/classes/tutor')
+  }
 }
