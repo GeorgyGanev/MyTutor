@@ -68,8 +68,6 @@ export class UserService {
       return;
     }
 
-    console.log(this.user$$)
-
     const data = JSON.parse(userData);
     const loggedUser = new User(data.email, data.username, data.isTutor, data.objectId, data.sessionToken);
 
@@ -78,6 +76,7 @@ export class UserService {
   }
 
   logOut(){
-    return this.http.post('/api/logout', {})
+    localStorage.removeItem('[user]');
+    this.user = undefined;
   }
 }

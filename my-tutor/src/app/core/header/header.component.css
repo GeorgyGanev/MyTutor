@@ -48,6 +48,12 @@
 .right a {
     border: 2px solid #499c82;
     padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.right a:hover {
+    background-color: #499c82;
+    color: white;
 }
 
 
