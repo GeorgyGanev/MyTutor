@@ -10,16 +10,20 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
 
+  isLoading = false;
+
   constructor(private userService: UserService, private router: Router){ }
 
   register(form: NgForm) {
 
     const { username, email, password} = form.value;
 
+    this.isLoading = true;
+
     this.userService.register(username, email, password)
       .subscribe((user) => {
         localStorage.setItem('[user]', JSON.stringify(user));
+        this.router.navigate(['/']);
         });
-    
   }
 }

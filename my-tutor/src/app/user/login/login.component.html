@@ -1,4 +1,6 @@
-<div class="container">
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="container" *ngIf="!isLoading">
     <form class="form" #form="ngForm" (ngSubmit)="login(form)">
         <h2>Login</h2>
         <div class="input-fields">

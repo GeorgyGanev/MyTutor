@@ -11,22 +11,22 @@ import { TutorModule } from './tutor/tutor.module';
 import { UserModule } from './user/user.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    AuthenticateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    UserModule,
     CoreModule,
-    TutorModule,
-    UserModule
+    SharedModule,
+    TutorModule
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

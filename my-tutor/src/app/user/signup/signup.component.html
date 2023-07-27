@@ -1,4 +1,6 @@
-<div class="container">
+<app-loader *ngIf="isLoading"/>
+
+<div class="container" *ngIf="!isLoading">
     <form class="form" #form="ngForm" (ngSubmit)="register(form)">
         <h2>Sign Up</h2>
         <div class="input-fields">
@@ -18,3 +20,4 @@
         <a routerLink="/login">Login</a>
     </div>
 </div>
+

@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   @ViewChild('passwordInput') passwordInput = undefined;
 
+  isLoading = false;
+
   constructor(private userService: UserService, private router: Router){ }
 
   login(form: NgForm) {
@@ -18,6 +20,8 @@ export class LoginComponent {
     const {email, password} = form.value;
     form.reset();
 
+    this.isLoading = true;
+    
     this.userService.login(email, password).subscribe((user) => {
       localStorage.setItem('[user]', JSON.stringify(user))
       this.router.navigate(['/']);
