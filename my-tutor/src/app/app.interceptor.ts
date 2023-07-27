@@ -29,6 +29,7 @@ export class AppInterceptor implements HttpInterceptor {
         headers: new HttpHeaders(headers)
       });
     }
+    
     return next.handle(request);
   }
 }

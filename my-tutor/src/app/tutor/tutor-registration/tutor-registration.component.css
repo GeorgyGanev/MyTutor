@@ -57,6 +57,7 @@ button {
 .group {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .group label {
@@ -72,4 +73,7 @@ button {
 .group textarea {
     width: 80%;
     height: 200px;
+    padding: 0.5em;
+    border: 2px solid lightgray;
+    font-size: 14px;
 }

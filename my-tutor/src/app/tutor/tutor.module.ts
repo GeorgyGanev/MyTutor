@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TutorShortCardComponent } from './tutor-short-card/tutor-short-card.component';
 import { TutorRegistrationComponent } from './tutor-registration/tutor-registration.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { TutorRegistrationComponent } from './tutor-registration/tutor-registrat
     TutorRegistrationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     TutorShortCardComponent

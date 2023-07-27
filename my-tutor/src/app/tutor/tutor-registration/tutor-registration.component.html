@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form" >
+    <form class="form" #form="ngForm" (ngSubmit)="registerTutor(form)">
         <h2>Become a Tutor</h2>
         <div class="input-fields">
 
@@ -28,8 +28,13 @@
             </div>
 
             <div class="group">
+                <label for="picture">Picture</label>
+                <input type="text" name="picture" id="picture">
+            </div>
+
+            <div class="group">
                 <label for="about">About Me</label>
-                <textarea name="about" id="about"></textarea>
+                <textarea name="about" id="about" ngModel></textarea>
             </div>
 
     
