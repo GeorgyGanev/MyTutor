@@ -1,7 +1,8 @@
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
+
 import { IUser } from 'src/types/user';
 import { User } from 'src/types/user-model';
 
@@ -51,17 +52,6 @@ export class UserService {
     }))
   }
 
-  // getUserProfile(){
-  //   const { meHeaders } = environment;
-  //   return this.http
-  //   .get<IUser>('/api/users/me', {headers: meHeaders})
-  //   .pipe(tap((user) => {
-  //     this.user$$.next(user)
-  //     console.log(user);
-      
-  //   }))
-  // }
-
   autoLogin(){
     const userData =  localStorage.getItem('[user]');
     if (!userData) {
@@ -79,4 +69,6 @@ export class UserService {
     localStorage.removeItem('[user]');
     this.user = undefined;
   }
+
+
 }

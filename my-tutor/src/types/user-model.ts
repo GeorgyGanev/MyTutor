@@ -4,7 +4,7 @@ export class User {
         public username: string,
         public isTutor: boolean,
         public objectId: string,
-        private _sessionToken: string
+        public _sessionToken: string
     ) { }
 
     get token(){

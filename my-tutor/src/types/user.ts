@@ -4,4 +4,5 @@ export interface IUser {
     email: string;
     isTutor: boolean;
     objectId: string;
+    _sessionToken: string;
 }

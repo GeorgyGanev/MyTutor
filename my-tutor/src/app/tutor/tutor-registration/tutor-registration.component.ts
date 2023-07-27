@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { UserService } from 'src/app/user/user.service';
-import { User } from 'src/types/user-model';
+import { TutorService } from '../tutor.service';
+
+import { UserPointer } from 'src/types/user-pointer';
+
+
 
 @Component({
   selector: 'app-tutor-registration',
@@ -10,15 +16,27 @@ import { User } from 'src/types/user-model';
 })
 export class TutorRegistrationComponent {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router, private tutorService: TutorService) { }
 
   registerTutor(form: NgForm){
 
-    const userId = this.userService.user?.objectId;
-    console.log(this.userService.user);
+    let subjectsArr = form.value.subjects.split(', ');
     
-    console.log(form.value);
+    let pointerId: any = this.userService.user?.objectId;
     
+    let pointerField: UserPointer = {
+      __type: 'Pointer',
+      className: '_User',
+      objectId: pointerId,
+    }
+  
+    let tutorData = {...form.value, subjects: subjectsArr}  
+  
+    this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
+      
+      this.router.navigate(['/'])
+    });
+     
 
   }
 }
