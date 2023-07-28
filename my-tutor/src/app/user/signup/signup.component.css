@@ -74,3 +74,8 @@ button {
 .fa-question-circle {
     color: #499c82;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+}
