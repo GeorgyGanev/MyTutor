@@ -12,13 +12,12 @@ export class TutorService {
   constructor(private http: HttpClient) { }
 
   registerTutor(tutorData: Tutor, id: UserPointer){
-  
     return this.http.post<Tutor>('/api/classes/tutor', {...tutorData, userId: id } )
-    
   }
-
 
   getTutors(){
     return this.http.get<Tutor[]>('/api/classes/tutor')
   }
+
+ 
 }

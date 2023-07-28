@@ -20,6 +20,14 @@ export class UserService {
     return !!this.user;
   } 
 
+  get isTutor(): boolean {
+    return this.user?.isTutor!
+  }
+
+  set isTutor(value: boolean) {
+    this.user!.isTutor = true;
+  }
+
   subscription: Subscription;
 
   constructor(private http: HttpClient) { 
@@ -42,7 +50,6 @@ export class UserService {
     .pipe(tap((user) => {
         this.user$$.next(user);
       }));
-
   }
 
   login(email: string, password: string){
@@ -62,7 +69,6 @@ export class UserService {
     const loggedUser = new User(data.email, data.username, data.isTutor, data.objectId, data.sessionToken);
 
     this.user = loggedUser;
-  
   }
 
   logOut(){
@@ -76,7 +82,9 @@ export class UserService {
     .set('X-Parse-REST-API-Key', 'gn2DLKfXS5boKxcaINy7O4yo307Y4DWYJgedbQIY')
     .set('Content-Type', 'application/json')
     .set('X-Parse-Session-Token', sessionToken)
-    return this.http.put(`https://parseapi.back4app.com/users/${userId}`, data, {headers})
+    return this.http.put<IUser>(`https://parseapi.back4app.com/users/${userId}`, data, {headers})
+    .pipe(tap((user) => {
+      this.user$$.next(user);
+    }))
   }
-
 }

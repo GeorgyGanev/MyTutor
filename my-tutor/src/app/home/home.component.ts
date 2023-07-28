@@ -12,15 +12,16 @@ export class HomeComponent implements OnInit {
 
   constructor(private tutorService: TutorService) { }
 
-
   tutors: Tutor[] = [];
 
   ngOnInit(): void {
-    this.tutorService.getTutors().subscribe((response: any) => {
+   this.tutorService.getTutors().subscribe((response: any) => {
       
       this.tutors = response.results;
           
     })
   }
   
+
+
 }
