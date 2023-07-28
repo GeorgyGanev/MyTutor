@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  @ViewChild('passwordInput') passwordInput = undefined;
 
   isLoading = false;
 
@@ -17,6 +16,10 @@ export class LoginComponent {
 
   login(form: NgForm) {
    
+    if (form.invalid){
+      return;
+    }
+
     const {email, password} = form.value;
     form.reset();
 

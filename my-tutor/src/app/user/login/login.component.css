@@ -70,3 +70,9 @@ button {
     color:#499c82;
     opacity: none;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+    
+}

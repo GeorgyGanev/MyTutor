@@ -4,8 +4,19 @@
     <form class="form" #form="ngForm" (ngSubmit)="login(form)">
         <h2>Login</h2>
         <div class="input-fields">
-            <input type="text" placeholder="Email" name="email" ngModel />
-            <input type="text" placeholder="Password" name="password" #passwordInput="ngModel" ngModel />
+            <input type="text" placeholder="Email" name="email" #inputEmail="ngModel" ngModel required />
+
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+            </ng-container>
+
+            <input type="text" placeholder="Password" name="password" #inputPassword="ngModel" ngModel required minlength="4" />
+
+            <ng-container *ngIf="inputPassword.touched">
+                <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least {{inputPassword.errors?.['minlength']['requiredLength']}} character long</p>
+            </ng-container>
+
         </div>
         <div class="checkbox">
             <input type="checkbox" name="showPassword">

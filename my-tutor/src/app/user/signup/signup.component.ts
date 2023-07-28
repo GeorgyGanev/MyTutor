@@ -16,6 +16,10 @@ export class SignupComponent {
 
   register(form: NgForm) {
 
+    if (form.invalid){
+      return;
+    }
+
     const { username, email, password} = form.value;
 
     this.isLoading = true;
