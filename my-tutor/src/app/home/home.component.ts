@@ -15,13 +15,9 @@ export class HomeComponent implements OnInit {
   tutors: Tutor[] = [];
 
   ngOnInit(): void {
-   this.tutorService.getTutors().subscribe((response: any) => {
-      
-      this.tutors = response.results;
-          
-    })
+      this.tutorService.getLastTutors(3).subscribe((response: any) => {
+        this.tutors = response.results;
+      })    
   }
-  
-
 
 }
