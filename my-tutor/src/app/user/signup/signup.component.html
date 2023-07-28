@@ -22,9 +22,10 @@
                 <p *ngIf="passwordInput.errors?.['minlength']" class="error">Password must be at least {{passwordInput.errors?.['minlength']['requiredLength']}} characters long!</p>
             </ng-container>
             
-            <input type="text" placeholder="Repeat Password" name="rePassword" #rePasswordInput="ngModel" ngModel required />
+            <input type="text" placeholder="Repeat Password" name="rePassword" #rePasswordInput="ngModel" appPasswordValidator="passwordInput" ngModel required />
             <ng-container *ngIf="rePasswordInput.touched">
                 <p *ngIf="rePasswordInput.errors?.['required']" class="error">Repeat Password required!</p>
+                <p *ngIf="rePasswordInput.getError('passwordMatchError')" class="error">Passwords don\'t match!</p>
             </ng-container>
         
         

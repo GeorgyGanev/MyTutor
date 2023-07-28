@@ -5,6 +5,7 @@ import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TutorRegistrationComponent } from './tutor/tutor-registration/tutor-registration.component';
+import { AuthActivate } from './core/guards/auth.activate';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'registration',
-    component: TutorRegistrationComponent
+    component: TutorRegistrationComponent,
+    canActivate: [AuthActivate]
   },
   { path: '**', component: NotFoundComponent }
 ];

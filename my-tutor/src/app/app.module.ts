@@ -21,12 +21,12 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     UserModule,
     CoreModule,
     SharedModule,
-    TutorModule
+    TutorModule,
+    AppRoutingModule
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

@@ -9,5 +9,10 @@ import { Tutor } from 'src/types/tutor-model';
 export class TutorShortCardComponent {
 
 @Input('tutor') tutor: Tutor | undefined;
+
+submitCard(){
+  console.log(this.tutor?.userId.objectId);
+  
+}
   
 }
