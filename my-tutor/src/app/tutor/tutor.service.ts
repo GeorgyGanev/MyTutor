@@ -20,8 +20,11 @@ export class TutorService {
   }
 
   getLastTutors(limit: number){
-    
     return this.http.get<Tutor[]>(`/api/classes/tutor?limit=${limit}`)
+  }
+
+  getSingleTutor(userId: string){
+    return this.http.get<Tutor>(`/api/classes/tutor/${userId}`)
   }
 
  
