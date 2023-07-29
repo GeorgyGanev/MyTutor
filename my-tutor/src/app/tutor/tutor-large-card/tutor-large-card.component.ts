@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Tutor } from 'src/types/tutor-model';
 
 @Component({
   selector: 'app-tutor-large-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tutor-large-card.component.css']
 })
 export class TutorLargeCardComponent {
+
+  @Input('tutor') tutor: Tutor | undefined;
 
 }

@@ -1,9 +1,7 @@
 <ng-container class="list-wrapper">
     <div class="cards-wrapper">
-        <app-tutor-large-card />
-        <app-tutor-large-card />
-        <app-tutor-large-card />
-        <app-tutor-large-card />
+        <app-tutor-large-card *ngFor="let tutor of tutorList" [tutor]="tutor" />
+        
     </div>
 </ng-container>
 
