@@ -1,0 +1,10 @@
+.list {
+    background-color: yellow;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin: 50px;
+}

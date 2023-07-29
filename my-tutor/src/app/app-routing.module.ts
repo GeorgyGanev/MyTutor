@@ -6,6 +6,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TutorRegistrationComponent } from './tutor/tutor-registration/tutor-registration.component';
 import { AuthActivate } from './core/guards/auth.activate';
+import { TutorListComponent } from './tutor/tutor-list/tutor-list.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
     component: TutorRegistrationComponent,
     canActivate: [AuthActivate]
   },
+  {
+    path: 'tutors',
+    component: TutorListComponent
+  },
+  
   { path: '**', component: NotFoundComponent }
 ];
 
