@@ -1,22 +1,22 @@
+<app-loader *ngIf="isLoading"></app-loader>
 
-
-<div class="card">
+<div class="card" *ngIf="!isLoading">
     <div class="left">
         <div class="image">
-            <img src="{{tutor.imageUrl}}" alt="Profile Image">
+            <img src="{{tutor?.imageUrl}}" alt="Profile Image">
         </div>
         <div class="link">
-            <a [routerLink]="tutor.objectId">View Profile</a>
+            <a href="#">View Profile</a>
         </div>
     </div>
     <div class="right">
         <div class="personal">
-            <p class="name">{{tutor.firstName}} {{tutor.lastName}}</p>
+            <p class="name">{{tutor?.firstName}} {{tutor?.lastName}}</p>
             <p class="rating">5 stars</p>
             <p class="price-info"><span class="currency">$</span><span class="price">15</span>/hr</p>
         </div>
-        <p class="education">{{tutor.educationLevel}}</p>
-        <p class="expirience">10 years of teaching expirience</p>
+        <p class="education">{{tutor?.educationLevel}}</p>
+        <p class="expirience">{{tutor?.about}}</p>
         <p class="students-count">Students: <span class="count">15</span></p>
     </div>
 </div>

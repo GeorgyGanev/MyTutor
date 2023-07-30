@@ -24,22 +24,4 @@ export class EmailValidatorDirective implements Validator {
     return this.validator(control);
   }
  
-  // emailValidator(): ValidatorFn {
-  //   return (control) => {
-  //     if (control.value !== '' && control.value != null){
-  //       let isValid = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(control.value);
-
-  //       if (isValid){
-  //         return null;
-  //       } else {
-  //         return {
-  //           emailValidator: {valid: false}
-  //         };
-  //       }
-  //     } else {
-  //       return null;
-  //     }
-  //   };
-  // }
-
 }

@@ -8,6 +8,8 @@ import { UserPointer } from 'src/types/user-pointer';
   providedIn: 'root'
 })
 export class TutorService {
+  
+  tutor: Tutor | undefined;
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +18,7 @@ export class TutorService {
   }
 
   getTutors(){
-    return this.http.get<Tutor[]>('/api/classes/tutor')
+    return this.http.get<Tutor[]>('/api/classes/tutor?order=-createdAt')
   }
 
   getLastTutors(limit: number){
@@ -27,5 +29,8 @@ export class TutorService {
     return this.http.get<Tutor>(`/api/classes/tutor/${userId}`)
   }
 
+  getTutorName(){
+    
+  }
  
 }

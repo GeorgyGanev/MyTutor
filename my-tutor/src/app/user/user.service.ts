@@ -68,12 +68,15 @@ export class UserService {
     const data = JSON.parse(userData);
     const loggedUser = new User(data.email, data.username, data.isTutor, data.objectId, data.sessionToken);
 
-    this.user = loggedUser;
+    //this.user = loggedUser;
+
+    this.user$$.next(loggedUser);
   }
 
   logOut(){
     localStorage.removeItem('[user]');
-    this.user = undefined;
+    this.user$$.next(undefined);
+    //this.user = undefined;
   }
 
   editUser(data: any, userId: string, sessionToken: string){
@@ -87,4 +90,9 @@ export class UserService {
       this.user$$.next(user);
     }))
   }
+
+  updateTutorUser(){
+    
+  }
+
 }

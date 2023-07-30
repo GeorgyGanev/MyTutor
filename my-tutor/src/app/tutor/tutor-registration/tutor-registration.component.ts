@@ -6,6 +6,7 @@ import { UserService } from 'src/app/user/user.service';
 import { TutorService } from '../tutor.service';
 
 import { UserPointer } from 'src/types/user-pointer';
+import { User } from 'src/types/user-model';
 
 
 @Component({
@@ -37,10 +38,14 @@ export class TutorRegistrationComponent {
         this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe((user) => {
           console.log(user);
           
-          this.userService.isTutor = true;
-          
+ 
           //somehow update isTutor user status to show true
-          
+          // let data: any = localStorage.getItem('[user]');
+          // localStorage.removeItem('[user]');
+          // let dataObj = JSON.parse(data);
+          // dataObj = JSON.stringify({...dataObj, isTutor: true});
+          // localStorage.setItem('[user', dataObj);
+
         });
         this.router.navigate(['/'])
       },

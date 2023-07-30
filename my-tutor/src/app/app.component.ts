@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'my-tutor';
 
   constructor(private userService: UserService) {}
+  
   ngOnInit(): void {
     this.userService.autoLogin();
     

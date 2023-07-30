@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TutorService } from '../tutor.service';
-import { Subscription } from 'rxjs';
 import { Tutor } from 'src/types/tutor-model';
 
 @Component({
@@ -13,11 +12,13 @@ export class TutorListComponent implements OnInit, OnDestroy {
   constructor(private tutorService: TutorService) { }
 
   tutorList: Tutor[] = [];
+  isLoading = true;
 
   ngOnInit(): void {
   this.tutorService.getTutors().subscribe((response: any) => {
     
       this.tutorList = response.results;
+      this.isLoading = false;
     })  
   }
 

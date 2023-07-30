@@ -8,6 +8,9 @@ import { Tutor } from 'src/types/tutor-model';
 })
 export class TutorLargeCardComponent {
 
-  @Input('tutor') tutor: Tutor | undefined;
+  isLoading = true;
+
+  @Input('tutor') tutor!: Tutor
+
 
 }

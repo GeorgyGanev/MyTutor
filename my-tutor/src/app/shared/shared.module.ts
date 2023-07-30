@@ -4,8 +4,6 @@ import { LoaderComponent } from './loader/loader.component';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
 import { PasswordValidatorDirective } from './validators/password-validator.directive';
 
-
-
 @NgModule({
   declarations: [
     LoaderComponent,
@@ -17,7 +15,8 @@ import { PasswordValidatorDirective } from './validators/password-validator.dire
   ],
   exports: [
     LoaderComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    PasswordValidatorDirective
   ]
 })
 export class SharedModule { }

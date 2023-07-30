@@ -1,7 +1,7 @@
 <ng-container class="list-wrapper">
-    <div class="cards-wrapper">
+   <app-loader *ngIf="isLoading" />
+    <div class="cards-wrapper" *ngIf="!isLoading">
         <app-tutor-large-card *ngFor="let tutor of tutorList" [tutor]="tutor" />
-        
     </div>
 </ng-container>
 

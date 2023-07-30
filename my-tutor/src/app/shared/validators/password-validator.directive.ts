@@ -1,39 +1,50 @@
-import { Attribute, Directive } from '@angular/core';
-import { Form, FormControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Directive } from '@angular/core';
+import { AbstractControl,  FormGroup,  NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
+
+export function validatePassword(): ValidatorFn {
+    
+  return (control: AbstractControl) => {
+      let isValid = false;
+      
+      if(control && control instanceof FormGroup){
+          let group = control as FormGroup;
+
+          if (group.controls['passwordInput'] && group.controls['rePasswordInput']){
+              isValid = group.controls['passwordInput'].value == group.controls['rePasswordInput'].value;
+          }
+      }
+      if (isValid) {
+          return null;
+      } else {
+          return {'passwordMatchError': 'failed'}
+      }
+  }
+
+}
+
 
 @Directive({
   selector: '[appPasswordValidator]',
   providers: [
     {
       provide: NG_VALIDATORS,
-      useClass: PasswordValidatorDirective,
+      useExisting: PasswordValidatorDirective,
       multi: true
     }
   ]
 })
 export class PasswordValidatorDirective implements Validator{
 
-  constructor(@Attribute('appPasswordValidator') public passwordControl: string) { }
+  private validator;
 
+  constructor(){ 
+    this.validator = validatePassword();
+  }
 
-  validate (c: FormControl) {
+  validate(control: AbstractControl): ValidationErrors | null {
+
+    return this.validator(control)
     
-    const password = c.root.get(this.passwordControl);
-    const confirmPassword = c.value;
-
-    if (confirmPassword.value === null){
-      return null;
-    }
-
-    if (password){
-      const subscription: Subscription = password.valueChanges.subscribe(() => {
-        confirmPassword.updateValueAndValidity();
-        subscription.unsubscribe();
-      })
-    };
-
-  return password && password.value !== confirmPassword.value ? {passwordMatchError: true} : null;
   }
 
 }

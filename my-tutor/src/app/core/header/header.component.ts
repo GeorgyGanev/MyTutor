@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TutorService } from 'src/app/tutor/tutor.service';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class HeaderComponent {
     return this.userService.isTutor;
   }
   
-
   get username(): string {
     return this.userService.user?.username || '';
   }
@@ -29,4 +27,5 @@ export class HeaderComponent {
     this.userService.logOut();
     this.router.navigate(['/'])
   }
+
 }

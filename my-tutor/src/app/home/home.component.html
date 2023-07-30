@@ -16,7 +16,8 @@
         <h2>Professional Tutors</h2>
         <p>See some of our latest tutors</p>
 
-        <div class="cards-list">
+        <app-loader *ngIf="isLoading" />
+        <div class="cards-list" *ngIf="!isLoading">
             <div *ngFor="let tutor of tutors">
                 <app-tutor-short-card [tutor]="tutor"/>
             </div>

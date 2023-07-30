@@ -15,15 +15,13 @@ export class TutorShortCardComponent {
 constructor(private tutorService: TutorService, private router: Router){ }
 
 submitCard(objectId: any){
-  console.log(objectId);
+ 
+  //console.log(objectId);
+  // this.tutorService.getSingleTutor(objectId).subscribe((user) => {
+  //   console.log(user);
+  //});
 
-  this.tutorService.getSingleTutor(objectId).subscribe((user) => {
-    console.log(user);
-    
-    this.router.navigate([`tutors/${objectId}`])
-  });
-
-  
+  this.router.navigate([`tutors/${objectId}`])
   
 }
   

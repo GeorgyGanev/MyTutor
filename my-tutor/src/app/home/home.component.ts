@@ -13,10 +13,12 @@ export class HomeComponent implements OnInit {
   constructor(private tutorService: TutorService) { }
 
   tutors: Tutor[] = [];
+  isLoading = true;
 
   ngOnInit(): void {
       this.tutorService.getLastTutors(3).subscribe((response: any) => {
         this.tutors = response.results;
+        this.isLoading = false;
       })    
   }
 

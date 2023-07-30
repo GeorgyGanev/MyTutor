@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TutorRegistrationComponent } from './tutor/tutor-registration/tutor-registration.component';
 import { AuthActivate } from './core/guards/auth.activate';
 import { TutorListComponent } from './tutor/tutor-list/tutor-list.component';
+import { TutorSingleCardComponent } from './tutor/tutor-single-card/tutor-single-card.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,13 @@ const routes: Routes = [
   },
   {
     path: 'tutors',
+    loadChildren: () => import('./tutor/tutor.module').then((m) => m.TutorModule),
     component: TutorListComponent
+  },
+
+  {
+    path: 'tutors/:tutorId',
+    component: TutorSingleCardComponent
   },
   
   { path: '**', component: NotFoundComponent }

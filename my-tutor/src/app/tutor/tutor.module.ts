@@ -5,6 +5,10 @@ import { TutorRegistrationComponent } from './tutor-registration/tutor-registrat
 import { FormsModule } from '@angular/forms';
 import { TutorListComponent } from './tutor-list/tutor-list.component';
 import { TutorLargeCardComponent } from './tutor-large-card/tutor-large-card.component';
+import { SharedModule } from '../shared/shared.module';
+import { TutorRoutingModule } from './tutor-routing-module';
+import { TutorSingleCardComponent } from './tutor-single-card/tutor-single-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,11 +17,15 @@ import { TutorLargeCardComponent } from './tutor-large-card/tutor-large-card.com
     TutorShortCardComponent,
     TutorRegistrationComponent,
     TutorListComponent,
-    TutorLargeCardComponent
+    TutorLargeCardComponent,
+    TutorSingleCardComponent,
+    
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    RouterModule
   ],
   exports: [
     TutorShortCardComponent

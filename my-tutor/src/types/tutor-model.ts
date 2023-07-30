@@ -1,9 +1,4 @@
-
-interface UserObjectId {
-    className: string;
-    objectId: string;
-    __type: string;
-}
+import { UserPointer } from "./user-pointer";
 
 
 export interface Tutor {
@@ -14,6 +9,6 @@ export interface Tutor {
     educationLevel: string;
     imageUrl: string;
     about: string;
-    userId:  UserObjectId,
+    userId:  UserPointer,
     objectId: string;
 }
