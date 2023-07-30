@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TutorService } from 'src/app/tutor/tutor.service';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -9,18 +10,18 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private tutorService: TutorService) { }
 
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
   get isTutor(): boolean | undefined {
-    return this.userService.isTutor;
+    return this.tutorService.isTutor || this.userService.isTutor;
   }
   
-  get username(): string {
-    return this.userService.user?.username || '';
+  get username(): any {
+    return this.tutorService.tutorUsername || this.userService.user?.username
   }
 
   logout(){

@@ -21,12 +21,12 @@ export class SignupComponent {
     }
 
     const { username, email, password} = form.value;
-
+    
     this.isLoading = true;
 
     this.userService.register(username, email, password)
       .subscribe((user) => {
-        localStorage.setItem('[user]', JSON.stringify(user));
+        localStorage.setItem('[user]', JSON.stringify({...user, username}));
         this.router.navigate(['/']);
         });
   }

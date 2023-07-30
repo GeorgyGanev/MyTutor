@@ -6,7 +6,6 @@ import { UserService } from 'src/app/user/user.service';
 import { TutorService } from '../tutor.service';
 
 import { UserPointer } from 'src/types/user-pointer';
-import { User } from 'src/types/user-model';
 
 
 @Component({
@@ -15,6 +14,7 @@ import { User } from 'src/types/user-model';
   styleUrls: ['./tutor-registration.component.css']
 })
 export class TutorRegistrationComponent {
+
 
   constructor(private userService: UserService, private router: Router, private tutorService: TutorService) { }
 
@@ -25,6 +25,7 @@ export class TutorRegistrationComponent {
 
     const user: any = this.userService.user;
     const sessionToken = user.sessionToken;
+
     
     let pointerField: UserPointer = {
       __type: 'Pointer',
@@ -34,21 +35,20 @@ export class TutorRegistrationComponent {
   
     let tutorData = {...form.value, subjects: subjectsArr}  
   
+  
+    let name = tutorData.firstName;
+
     this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
         this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe((user) => {
-          console.log(user);
           
- 
-          //somehow update isTutor user status to show true
-          // let data: any = localStorage.getItem('[user]');
-          // localStorage.removeItem('[user]');
-          // let dataObj = JSON.parse(data);
-          // dataObj = JSON.stringify({...dataObj, isTutor: true});
-          // localStorage.setItem('[user', dataObj);
-
+          this.tutorService.isUserUpdated();
+          this.tutorService.setTutorUsername(name);
+    
         });
         this.router.navigate(['/'])
-      },
+      }
+
+
     );
   }
 }

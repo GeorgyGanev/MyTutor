@@ -10,6 +10,8 @@ import { UserPointer } from 'src/types/user-pointer';
 export class TutorService {
   
   tutor: Tutor | undefined;
+  isTutor: boolean = false;
+  tutorUsername: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -29,8 +31,12 @@ export class TutorService {
     return this.http.get<Tutor>(`/api/classes/tutor/${userId}`)
   }
 
-  getTutorName(){
-    
+  isUserUpdated(){
+   this.isTutor = true;
+  }
+
+  setTutorUsername(name: string){
+    this.tutorUsername = name;
   }
  
 }
