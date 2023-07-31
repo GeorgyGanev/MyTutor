@@ -8,6 +8,6 @@ export function emailValidator(): ValidatorFn{
 
         return control.value == "" || regExp.test(control.value)
          ? null
-         : {emailValidator: true}
+         : {appEmailValidator: true}
     };
 }

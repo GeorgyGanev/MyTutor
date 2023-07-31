@@ -8,7 +8,7 @@
 
             <ng-container *ngIf="inputEmail.touched">
                 <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
-                <p *ngIf="inputEmail.hasError('emailValidator')" class="error">Invalid Email!</p>
+                <p *ngIf="inputEmail.hasError('appEmailValidator')" class="error">Invalid Email!</p>
             </ng-container>
 
             <input type="text" placeholder="Password" name="password" #inputPassword="ngModel" ngModel required minlength="4" />

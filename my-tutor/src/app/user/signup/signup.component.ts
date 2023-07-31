@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { emailValidator } from 'src/app/shared/validators/email-validator';
+import { validatePassword } from 'src/app/shared/validators/password-validator';
 
 @Component({
   selector: 'app-signup',
@@ -12,21 +14,37 @@ export class SignupComponent {
 
   isLoading = false;
 
-  constructor(private userService: UserService, private router: Router){ }
+  form = this.fb.group({
+    email: ['', [Validators.required, emailValidator()]],
+    username: ['', [Validators.required, Validators.minLength(2)]],
+    passGroup: this.fb.group(
+      {
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      rePassword: ['', [Validators.required]]
+    }, 
+    {
+      validators: [validatePassword('password', 'rePassword')]
+    }
+    )
+  })
 
-  register(form: NgForm) {
+  constructor(private fb:FormBuilder, private userService: UserService, private router: Router){ }
 
-    if (form.invalid){
+  register() {
+
+    if (this.form.invalid){
       return;
     }
 
-    const { username, email, password} = form.value;
+    const { email, username, passGroup: {password, rePassword} = {} } = this.form.value;
     
+
     this.isLoading = true;
 
-    this.userService.register(username, email, password)
+    this.userService.register(username!, email!, password!)
       .subscribe((user) => {
         localStorage.setItem('[user]', JSON.stringify({...user, username}));
+        this.isLoading = false;
         this.router.navigate(['/']);
         });
   }
