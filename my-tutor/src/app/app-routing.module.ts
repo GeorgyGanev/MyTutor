@@ -8,6 +8,7 @@ import { TutorRegistrationComponent } from './tutor/tutor-registration/tutor-reg
 import { AuthActivate } from './core/guards/auth.activate';
 import { TutorListComponent } from './tutor/tutor-list/tutor-list.component';
 import { TutorSingleCardComponent } from './tutor/tutor-single-card/tutor-single-card.component';
+import { ErrorComponent } from './core/error/error.component';
 
 const routes: Routes = [
   {
@@ -42,7 +43,10 @@ const routes: Routes = [
     path: 'tutors/:tutorId',
     component: TutorSingleCardComponent
   },
-  
+  {
+    path: 'error',
+    component: ErrorComponent
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

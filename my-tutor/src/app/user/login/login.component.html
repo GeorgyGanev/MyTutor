@@ -1,5 +1,7 @@
 <app-loader *ngIf="isLoading"></app-loader>
 
+<div class="notification error-msg" *ngIf="error">{{error}}</div>
+
 <div class="container" *ngIf="!isLoading">
     <form class="form" #form="ngForm" (ngSubmit)="login(form)">
         <h2>Login</h2>

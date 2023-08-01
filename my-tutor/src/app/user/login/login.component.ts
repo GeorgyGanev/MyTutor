@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   isLoading = false;
+  error: string = '';
 
   constructor(private userService: UserService, private router: Router){ }
-
+  
   login(form: NgForm) {
    
     if (form.invalid){
@@ -25,9 +26,16 @@ export class LoginComponent {
 
     this.isLoading = true;
     
-    this.userService.login(email, password).subscribe((user) => {
-      localStorage.setItem('[user]', JSON.stringify(user))
-      this.router.navigate(['/']);
+    this.userService.login(email, password).subscribe({
+      next: (user) => {
+        localStorage.setItem('[user]', JSON.stringify(user))
+        this.isLoading = false;
+        this.router.navigate(['/']);
+      },
+      error: (err) => {    
+        this.isLoading = false;
+        this.error = err.error.error;
+      }
     })
 
   }

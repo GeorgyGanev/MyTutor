@@ -7,15 +7,16 @@ import {
   HttpHeaders,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { environment } from './environments/environment';
 import { Router } from '@angular/router';
+import { ErrorService } from './core/error/error.service';
 
 const { apiUrl, headers } = environment;
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private errorService: ErrorService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -30,7 +31,19 @@ export class AppInterceptor implements HttpInterceptor {
       });
     }
     
-    return next.handle(request);
+    return next.handle(request).pipe(
+      catchError((err) => {
+        if (err.error.code === 101){
+          console.log(err.error.error);
+          
+          this.router.navigate(['/login']);
+        } else {
+          this.errorService.setError(err);
+          this.router.navigate(['/error'])
+        }
+       throw err
+      })
+    );
   }
 }
 
