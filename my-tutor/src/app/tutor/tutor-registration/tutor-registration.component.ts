@@ -20,6 +20,10 @@ export class TutorRegistrationComponent {
 
   registerTutor(form: NgForm){
 
+    if (form.invalid){
+      return;
+    }
+
     let subjectsArr = form.value.subjects.split(', ');
     let pointerId: any = this.userService.user?.objectId;
 
@@ -34,7 +38,6 @@ export class TutorRegistrationComponent {
     }
   
     let tutorData = {...form.value, subjects: subjectsArr}  
-  
   
     let name = tutorData.firstName;
 
