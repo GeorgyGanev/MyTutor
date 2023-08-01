@@ -85,3 +85,14 @@ button {
     color: red;
     font-size: 12px;
 }
+
+.notification {
+    margin: 1em auto;
+    width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 0.2rem;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    box-shadow: 0 5px 10px rgb(204, 204, 204);
+    background-color: red;
+  }

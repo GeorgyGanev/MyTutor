@@ -13,6 +13,7 @@ import { validatePassword } from 'src/app/shared/validators/password-validator';
 export class SignupComponent {
 
   isLoading = false;
+  error: string = '';
 
   form = this.fb.group({
     email: ['', [Validators.required, emailValidator()]],
@@ -42,10 +43,16 @@ export class SignupComponent {
     this.isLoading = true;
 
     this.userService.register(username!, email!, password!)
-      .subscribe((user) => {
-        localStorage.setItem('[user]', JSON.stringify({...user, username}));
-        this.isLoading = false;
-        this.router.navigate(['/']);
-        });
+      .subscribe({
+        next: (user) => {
+          localStorage.setItem('[user]', JSON.stringify({...user, username}));
+          this.isLoading = false;
+          this.router.navigate(['/']);
+          },
+        error: (err) => {
+          this.isLoading = false;
+          this.error = err.error.error
+        }
+      });
   }
 }

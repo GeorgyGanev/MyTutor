@@ -87,7 +87,3 @@ button {
     box-shadow: 0 5px 10px rgb(204, 204, 204);
     background-color: red;
   }
-  
-  .error-msg {
-    background-color: red;
-  }

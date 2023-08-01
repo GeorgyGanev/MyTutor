@@ -43,10 +43,10 @@ const routes: Routes = [
     path: 'tutors/:tutorId',
     component: TutorSingleCardComponent
   },
-  {
-    path: 'error',
-    component: ErrorComponent
-  },
+  // {
+  //   path: 'error',
+  //   component: ErrorComponent
+  // },
   { path: '**', component: NotFoundComponent }
 ];
 
