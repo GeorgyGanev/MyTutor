@@ -42,7 +42,7 @@ export class TutorRegistrationComponent {
     let name = tutorData.firstName;
 
     this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
-        this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe((user) => {
+        this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe(() => {
           
           this.tutorService.isUserUpdated();
           this.tutorService.setTutorUsername(name);

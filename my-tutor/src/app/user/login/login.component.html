@@ -13,7 +13,7 @@
                 <p *ngIf="inputEmail.hasError('appEmailValidator')" class="error">Invalid Email!</p>
             </ng-container>
 
-            <input type="text" placeholder="Password" name="password" #inputPassword="ngModel" ngModel required minlength="4" />
+            <input type="{{showPassword ? 'text': 'password'}}" placeholder="Password" name="password" #inputPassword="ngModel" ngModel required minlength="4" />
 
             <ng-container *ngIf="inputPassword.touched">
                 <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
@@ -22,7 +22,7 @@
 
         </div>
         <div class="checkbox">
-            <input type="checkbox" name="showPassword">
+            <input type="checkbox" name="showPassword" [(ngModel)]="showPassword">
             <span>Show Password</span>
         </div>
         <button>LOG IN</button>

@@ -55,4 +55,9 @@ export class SignupComponent {
         }
       });
   }
+
+  showPass(){
+    
+    
+  }
 }

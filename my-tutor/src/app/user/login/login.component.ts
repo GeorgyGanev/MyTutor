@@ -12,7 +12,8 @@ export class LoginComponent {
 
   isLoading = false;
   error: string = '';
-
+  showPassword: boolean = false;
+  
   constructor(private userService: UserService, private router: Router){ }
   
   login(form: NgForm) {
