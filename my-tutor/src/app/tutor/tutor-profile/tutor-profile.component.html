@@ -1,39 +1,41 @@
-<div class="profile-wrapper">
+<app-loader *ngIf="isLoading"></app-loader>
 
-    <h2 class="header">Tutor Profile</h2>
+<div class="no-profile" *ngIf="notRegistered ">Not registered as Tutor</div>
+
+<div class="profile-wrapper" *ngIf="!isLoading && !notRegistered">
+
+    <h2 class="header">{{tutor?.firstName}}'s Tutor Profile</h2>
     <div class="picture">
-        <img src="https://img.freepik.com/free-photo/front-view-young-beautiful-lady-white-t-shirt-black-jeans-coat-holding-green-book-pen-smiling-white_140725-18658.jpg" alt="profile picture">
+        <img src="{{tutor?.imageUrl}}" alt="profile picture">
     </div>
     
     <div class="group">
         <p class="title">First Name:</p>
-        <p class="firstName">Olaf</p>
+        <p class="firstName">{{tutor?.firstName}}</p>
     </div>
     <div class="group">
         <p class="title">Last Name: </p>
-        <p class="lastName">Olafson</p>
+        <p class="lastName">{{tutor?.lastName}}</p>
     </div>
     <div class="group">
         <p class="title">Age:</p>
-        <p class="age">20 y/o</p>
+        <p class="age">{{tutor?.age}} y/o</p>
     </div>
     <div class="group">
         <p class="title">Subjects</p>
-        <p class="subjects">Math, English, Latin</p>
+        <p class="subjects">{{tutor?.subjects?.join(', ')}}</p>
     </div>
     <div class="group">
         <p class="title">Price/hour:</p>
-        <p class="price"> $25</p>
+        <p class="price"> ${{tutor?.price}}</p>
     </div>
     <div class="group">
         <p class="title">Education Level:</p>
-        <p class="educationLevel">Master</p>
+        <p class="educationLevel">{{tutor?.educationLevel}}</p>
     </div>
     <div class="group about">
         <p class="title">About Me:</p>
-        <p class="aboutMe">This is my description
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus eos laudantium sit suscipit fuga odit cumque perferendis aut dignissimos accusamus, ullam ducimus animi numquam, aliquid maxime velit dolores facere molestiae? Exercitationem ipsa rem ullam enim. Quaerat reiciendis maiores cumque deserunt, ducimus voluptatum, sunt necessitatibus, ea in dolores adipisci dolorem maxime!
-        </p>
+        <p class="aboutMe">{{tutor?.about}}</p>
     </div>
    
     <button class="btn">Edit Profile</button>

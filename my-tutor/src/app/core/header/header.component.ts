@@ -32,12 +32,12 @@ export class HeaderComponent {
     this.router.navigate(['/'])
   }
 
-  loadTutorProfile(){
-    const userId = this.userService.user?.objectId;
-    this.tutorService.getTutorWithUserId(userId!)
-    .subscribe((tutor) => console.log(tutor)
-    )
+  // loadTutorProfile(){
+  //   const userId = this.userService.user?.objectId;
+  //   this.tutorService.getTutorWithUserId(userId!)
+  //   .subscribe((tutor) => console.log(tutor)
+  //   )
   
-  }
+  // }
 
 }
