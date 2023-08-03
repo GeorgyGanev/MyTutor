@@ -39,7 +39,6 @@ export class SignupComponent {
 
     const { email, username, passGroup: {password, rePassword} = {} } = this.form.value;
     
-
     this.isLoading = true;
 
     this.userService.register(username!, email!, password!)
@@ -47,6 +46,7 @@ export class SignupComponent {
         next: (user) => {
           localStorage.setItem('[user]', JSON.stringify({...user, username}));
           this.isLoading = false;
+          this.userService.username = username!; //add
           this.router.navigate(['/']);
           },
         error: (err) => {
@@ -56,8 +56,6 @@ export class SignupComponent {
       });
   }
 
-  showPass(){
-    
-    
-  }
+  showPass(){ }
+
 }

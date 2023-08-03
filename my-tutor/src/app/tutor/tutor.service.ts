@@ -31,6 +31,13 @@ export class TutorService {
     return this.http.get<Tutor>(`/api/classes/tutor/${userId}`)
   }
 
+  //added
+  getTutorWithUserId(id: string){
+    console.log(id);
+    
+    return this.http.get<Tutor>(`/api/classes/tutor?where={\"userId\":{ \"__type\": \"Pointer\", \"className\": \"_User\", \"objectId\": \"${id}\" }}`)
+  }
+
   isUserUpdated(){
    this.isTutor = true;
   }

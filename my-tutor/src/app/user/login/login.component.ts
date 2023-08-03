@@ -31,6 +31,7 @@ export class LoginComponent {
       next: (user) => {
         localStorage.setItem('[user]', JSON.stringify(user))
         this.isLoading = false;
+        this.userService.username = user.username
         this.router.navigate(['/']);
       },
       error: (err) => {    

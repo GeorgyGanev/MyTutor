@@ -15,6 +15,7 @@ export class UserService {
   public user$ = this.user$$.asObservable();
 
   user: IUser | User | undefined;
+  userName: string = ''; //add
 
   get isLogged(): boolean{
     return !!this.user;
@@ -26,6 +27,16 @@ export class UserService {
 
   set isTutor(value: boolean) {
     this.user!.isTutor = true;
+  }
+
+  //add getter
+  get username(): string {
+    return this.userName;
+  }
+  
+  //add setter
+  set username (name: string){
+    this.userName = name;
   }
 
   subscription: Subscription;

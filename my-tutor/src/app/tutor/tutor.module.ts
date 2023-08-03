@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TutorRoutingModule } from './tutor-routing-module';
 import { TutorSingleCardComponent } from './tutor-single-card/tutor-single-card.component';
 import { RouterModule } from '@angular/router';
+import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
 
 
 
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     TutorListComponent,
     TutorLargeCardComponent,
     TutorSingleCardComponent,
+    TutorProfileComponent,
     
   ],
   imports: [
