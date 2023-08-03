@@ -1,8 +1,8 @@
 <app-loader *ngIf="isLoading"></app-loader>
 
-<div class="no-profile" *ngIf="notRegistered ">Not registered as Tutor</div>
+<div class="no-profile" *ngIf="notRegistered" >Not registered as Tutor</div>
 
-<app-edit-tutor *ngIf="editMode"></app-edit-tutor>
+<app-edit-tutor *ngIf="editMode" [tutor]="tutor" (resetEdit)="resetEdit()"></app-edit-tutor>
 
 <div class="profile-wrapper" *ngIf="!isLoading && !notRegistered && !editMode">
 

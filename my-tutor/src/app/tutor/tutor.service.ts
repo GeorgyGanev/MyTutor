@@ -36,6 +36,10 @@ export class TutorService {
     return this.http.get<Tutor>(`/api/classes/tutor?where={\"userId\":{ \"__type\": \"Pointer\", \"className\": \"_User\", \"objectId\": \"${id}\" }}`)
   }
 
+  updateTutorProfile(tutorId: string, data: Tutor){
+    return this.http.put<Tutor>(`/api/classes/tutor/${tutorId}`, data)
+  }
+
   isUserUpdated(){
    this.isTutor = true;
   }
@@ -43,5 +47,6 @@ export class TutorService {
   setTutorUsername(name: string){
     this.tutorUsername = name;
   }
+
  
 }

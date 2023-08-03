@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { TutorService } from '../tutor.service';
 import { Tutor } from 'src/types/tutor-model';
@@ -35,7 +35,11 @@ export class TutorProfileComponent implements OnInit {
   }
 
   editProfile(){
-    this.editMode = !this.editMode
+    this.editMode = true;
+  }
+
+  resetEdit(){
+    this.editMode = false;
   }
 
 }

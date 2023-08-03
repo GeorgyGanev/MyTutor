@@ -1,39 +1,42 @@
-<form class="profile-wrapper">
+<form class="profile-wrapper" [formGroup]="form" (ngSubmit)="saveProfileHandler()">
 
     <h2 class="header">Edit Profile</h2>
    
     <div class="group">
         <p class="title">First Name:</p>
-        <input class="firstName" name="firstName" />
+        <input class="firstName" formControlName="firstName" />
     </div>
     <div class="group">
         <p class="title">Last Name: </p>
-        <input class="lastName" name="lastName" />
+        <input class="lastName" formControlName="lastName" />
     </div>
     <div class="group">
         <p class="title">Image Url:</p>
-        <input class="imageUrl" name="imageUrl"/>
+        <input class="imageUrl" formControlName="imageUrl"/>
     </div>
     <div class="group">
         <p class="title">Age:</p>
-        <input type="number" class="age" name="age" />
+        <input type="number" class="age" formControlName="age" />
     </div>
     <div class="group">
         <p class="title">Subjects</p>
-        <input class="subjects" name="subjects" />
+        <input class="subjects" formControlName="subjects" />
     </div>
     <div class="group">
         <p class="title">Price/hour:</p>
-        <input type="number" min="0" class="price" name="price" />
+        <input type="number" min="0" class="price" formControlName="price" />
     </div>
     <div class="group">
         <p class="title">Education Level:</p>
-        <input class="educationLevel" name="educationLevel" />
+        <input class="educationLevel" formControlName="educationLevel" />
     </div>
     <div class="group">
         <p class="title">About Me:</p>
-        <textarea class="about" name="about" id="aboutMe"></textarea>
+        <textarea class="about" formControlName="about" id="aboutMe"></textarea>
     </div>
    
-    <button class="btn">Edit Profile</button>
+    <div class="buttons" >
+        <button class="btn">Save Changes</button>
+        <a (click)="resetForm()" class="btn">Cancel</a>
+    </div>
 </form>
