@@ -46,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'tutor-profile',
-    component: TutorProfileComponent
+    component: TutorProfileComponent,
+    canActivate: [AuthActivate]
   },
   { path: '**', component: NotFoundComponent }
 ];

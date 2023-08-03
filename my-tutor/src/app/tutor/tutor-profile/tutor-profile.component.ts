@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { TutorService } from '../tutor.service';
 import { Tutor } from 'src/types/tutor-model';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tutor-profile',
@@ -13,13 +12,17 @@ export class TutorProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private tutorService: TutorService) { }
 
-  userId = this.userService.user?.objectId;
+  //userId = this.userService.user?.objectId;
   tutor: Tutor | undefined
   notRegistered: boolean = false;
   isLoading: boolean = true;
-
+  userId: string | undefined
+  editMode: boolean = false;
 
   ngOnInit(): void {
+    
+    this.userService.user$.subscribe((user) => this.userId = user?.objectId)
+    
     this.tutorService.getTutorWithUserId(this.userId!)
       .subscribe((tutor: any) => {
         this.isLoading = false;
@@ -29,6 +32,10 @@ export class TutorProfileComponent implements OnInit {
           this.notRegistered = true;
         }
       })
+  }
+
+  editProfile(){
+    this.editMode = !this.editMode
   }
 
 }

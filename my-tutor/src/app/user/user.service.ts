@@ -16,10 +16,15 @@ export class UserService {
 
   user: IUser | User | undefined;
   userName: string = ''; //add
+  loggedUserId: string = '' //add to remove
 
   get isLogged(): boolean{
     return !!this.user;
   } 
+
+  set loggedId (id: string) {
+    this.loggedUserId = id;
+  }
 
   get isTutor(): boolean {
     return this.user?.isTutor!
@@ -45,6 +50,7 @@ export class UserService {
     this.subscription = this.user$.subscribe((user) => {
       
       this.user = user;
+      
     })
   }
 

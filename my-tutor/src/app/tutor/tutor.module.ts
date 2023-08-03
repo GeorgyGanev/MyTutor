@@ -10,6 +10,7 @@ import { TutorRoutingModule } from './tutor-routing-module';
 import { TutorSingleCardComponent } from './tutor-single-card/tutor-single-card.component';
 import { RouterModule } from '@angular/router';
 import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
+import { EditTutorComponent } from './edit-tutor/edit-tutor.component';
 
 
 
@@ -21,6 +22,7 @@ import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
     TutorLargeCardComponent,
     TutorSingleCardComponent,
     TutorProfileComponent,
+    EditTutorComponent,
     
   ],
   imports: [
@@ -30,7 +32,8 @@ import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
     RouterModule
   ],
   exports: [
-    TutorShortCardComponent
+    TutorShortCardComponent,
+    TutorRegistrationComponent
   ]
 })
 export class TutorModule { }

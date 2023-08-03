@@ -2,7 +2,9 @@
 
 <div class="no-profile" *ngIf="notRegistered ">Not registered as Tutor</div>
 
-<div class="profile-wrapper" *ngIf="!isLoading && !notRegistered">
+<app-edit-tutor *ngIf="editMode"></app-edit-tutor>
+
+<div class="profile-wrapper" *ngIf="!isLoading && !notRegistered && !editMode">
 
     <h2 class="header">{{tutor?.firstName}}'s Tutor Profile</h2>
     <div class="picture">
@@ -38,5 +40,5 @@
         <p class="aboutMe">{{tutor?.about}}</p>
     </div>
    
-    <button class="btn">Edit Profile</button>
+    <button (click)="editProfile()" class="btn">Edit Profile</button>
 </div>

@@ -66,12 +66,12 @@ button {
 }
 
 .group input {
-    width: 80%;
+    width: 75%;
     
 }
 
 .group textarea {
-    width: 80%;
+    width: 75%;
     height: 200px;
     padding: 0.5em;
     border: 2px solid lightgray;
