@@ -11,4 +11,5 @@ export interface Tutor {
     about: string;
     userId:  UserPointer,
     objectId: string;
+    price: number;
 }

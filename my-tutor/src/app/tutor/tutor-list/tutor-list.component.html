@@ -1,7 +1,12 @@
+<div class="group">
+    <input type="text" id="filter" name="filter" placeholder="Filter by Subject" [(ngModel)]="filterInput" (blur)="reset()" />
+    <button [disabled]="!filterInput" (click)="filter()" class="button">Filter</button>
+</div>
+
 <ng-container class="list-wrapper">
    <app-loader *ngIf="isLoading" />
     <div class="cards-wrapper" *ngIf="!isLoading">
-        <app-tutor-large-card *ngFor="let tutor of tutorList" [tutor]="tutor" />
+        <app-tutor-large-card *ngFor="let tutor of filterList" [tutor]="tutor" />
     </div>
 </ng-container>
 

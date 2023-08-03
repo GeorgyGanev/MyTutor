@@ -6,7 +6,7 @@
         <div class="info">
             <div class="name">{{tutor?.firstName}} {{tutor?.lastName}}</div>
             <div class="subject-list">
-                <p class="subject">{{tutor?.subjects}}</p>
+                <p class="subject">{{tutor?.subjects?.join(', ')}}</p>
             </div>
             <div class="description">
                 <p>{{tutor?.about}}</p>
