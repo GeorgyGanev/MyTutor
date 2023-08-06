@@ -42,10 +42,17 @@ export class TutorRegistrationComponent {
     let name = tutorData.firstName;
 
     this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
+
+      console.log('tutor registered');
+      this.tutorService.isUserUpdated();
+      this.tutorService.setTutorUsername(name);
+
         this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe(() => {
           
-          this.tutorService.isUserUpdated();
-          this.tutorService.setTutorUsername(name);
+          console.log('user edited');
+         
+          //this.tutorService.isUserUpdated();
+          //this.tutorService.setTutorUsername(name);
     
         });
         this.router.navigate(['/'])

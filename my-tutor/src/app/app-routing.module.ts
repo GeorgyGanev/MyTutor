@@ -10,6 +10,7 @@ import { TutorListComponent } from './tutor/tutor-list/tutor-list.component';
 import { TutorSingleCardComponent } from './tutor/tutor-single-card/tutor-single-card.component';
 import { ErrorComponent } from './core/error/error.component';
 import { TutorProfileComponent } from './tutor/tutor-profile/tutor-profile.component';
+import { RegisterActivate } from './core/guards/register.activate';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
   {
     path: 'registration',
     component: TutorRegistrationComponent,
-    canActivate: [AuthActivate]
+    canActivate: [AuthActivate, RegisterActivate]
   },
   {
     path: 'tutors',

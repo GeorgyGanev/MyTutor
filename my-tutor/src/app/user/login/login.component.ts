@@ -32,7 +32,7 @@ export class LoginComponent {
         localStorage.setItem('[user]', JSON.stringify(user))
         this.isLoading = false;
         this.userService.username = user.username;
-        this.userService.loggedUserId = user.objectId; //to remove
+        this.userService.loggedId = user.objectId; //to remove
        
         
         this.router.navigate(['/']);

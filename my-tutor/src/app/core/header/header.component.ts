@@ -16,14 +16,14 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
 
-  get isTutor(): boolean | undefined {
+  get isTutor(): boolean  {
     return this.tutorService.isTutor || this.userService.isTutor;
   }
   
   get username(): any {
     // this.tutorService.tutorUsername || this.userService.userName
     //return this.userService.user?.username
-
+    
     return this.userService.userName || this.userService.user?.username;
   }
 

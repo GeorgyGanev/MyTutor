@@ -31,7 +31,6 @@ export class TutorService {
     return this.http.get<Tutor>(`/api/classes/tutor/${userId}`)
   }
 
-  //added
   getTutorWithUserId(id: string){ 
     return this.http.get<Tutor>(`/api/classes/tutor?where={\"userId\":{ \"__type\": \"Pointer\", \"className\": \"_User\", \"objectId\": \"${id}\" }}`)
   }

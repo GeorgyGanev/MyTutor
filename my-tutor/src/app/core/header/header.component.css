@@ -34,9 +34,9 @@
 .center a {
     width: 100%;
     padding: 0.5em 1em;
-    background-color: #499c82;
-    border-radius: 0.5em;
-    color: white;
+    border: 2px solid #499c82;
+    
+    
 }
 
 .main-nav .right {

@@ -20,19 +20,25 @@ export class TutorProfileComponent implements OnInit {
   editMode: boolean = false;
 
   ngOnInit(): void {
+  
+    this.userId = this.userService.user?.objectId;
     
-    this.userService.user$.subscribe((user) => this.userId = user?.objectId)
+    //this.userService.user$.subscribe((user) => this.userId = user?.objectId)
     
     this.tutorService.getTutorWithUserId(this.userId!)
       .subscribe((tutor: any) => {
         this.isLoading = false;
         this.tutor = tutor.results[0];
 
+        //edit undefined to 
+
         if (this.tutor === undefined) {
           this.notRegistered = true;
         }
+
       })
   }
+
 
   editProfile(){
     this.editMode = true;
