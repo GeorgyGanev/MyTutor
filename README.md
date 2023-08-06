@@ -8,7 +8,7 @@ The application has a persistent DB using Back4App as backend.
 # Main Features
 Any user (registered or not) can access the application and review the currently active adds for private tutors.
 
-On the home page the user can see the latest three add for private tutoring.
+On the home page the user can see the latest three adds on the platform.
 
 The user can access the Tutors section by clicking See Tutors and see all active adds.
 The adds on the sytem can be filtered by Subject so that only desired adds are displayed.
