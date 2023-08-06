@@ -43,18 +43,19 @@ export class TutorRegistrationComponent {
 
     this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
 
-      console.log('tutor registered');
+      console.log('tutor registered'); //added for testing
       this.tutorService.isUserUpdated();
       this.tutorService.setTutorUsername(name);
 
         this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe(() => {
           
-          console.log('user edited');
-         
+          console.log('user edited'); //added for testing
+          
           //this.tutorService.isUserUpdated();
           //this.tutorService.setTutorUsername(name);
     
         });
+        this.userService.autoLogin(); //testing
         this.router.navigate(['/'])
       }
 

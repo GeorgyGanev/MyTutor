@@ -21,10 +21,15 @@ export class TutorProfileComponent implements OnInit {
 
   ngOnInit(): void {
   
-    this.userId = this.userService.user?.objectId;
+    this.userId = this.userService.user?.objectId
+
+    if (this.userId === undefined) {
+      let ls = localStorage.getItem('[user]') || ''; //testing
+      let id = JSON.parse(ls).objectId; //testing
+      this.userId = id;
+    }
     
-    //this.userService.user$.subscribe((user) => this.userId = user?.objectId)
-    
+  
     this.tutorService.getTutorWithUserId(this.userId!)
       .subscribe((tutor: any) => {
         this.isLoading = false;
