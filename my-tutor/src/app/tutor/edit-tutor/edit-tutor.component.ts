@@ -54,11 +54,10 @@ export class EditTutorComponent implements OnInit {
 
     this.tutorService.updateTutorProfile(tutorId!, tutorData)
       .subscribe(() => {
-      
+    
         this.router.navigate(['/'])
 
       })
-    
   }
 
   resetForm(){

@@ -11,6 +11,7 @@ import { TutorSingleCardComponent } from './tutor/tutor-single-card/tutor-single
 import { ErrorComponent } from './core/error/error.component';
 import { TutorProfileComponent } from './tutor/tutor-profile/tutor-profile.component';
 import { RegisterActivate } from './core/guards/register.activate';
+import { LoggedActivate } from './core/guards/logged.activate';
 
 const routes: Routes = [
   {
@@ -24,11 +25,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoggedActivate]
   },
   {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
+    canActivate: [LoggedActivate]
   },
   {
     path: 'registration',

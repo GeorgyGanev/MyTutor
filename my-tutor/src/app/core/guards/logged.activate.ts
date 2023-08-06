@@ -9,10 +9,12 @@ import {
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
 
-@Injectable({ providedIn: 'root' })
-export class AuthActivate implements CanActivate {
+@Injectable({
+  providedIn: 'root',
+})
+export class LoggedActivate implements CanActivate {
 
-    constructor(private userService: UserService, private router: Router){}
+    constructor(private userService: UserService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,7 +24,7 @@ export class AuthActivate implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-        
-        return this.userService.isLogged || this.router.createUrlTree(['/login'])
+
+        return !this.userService.isLogged || this.router.createUrlTree(['/'])
     }
 }
