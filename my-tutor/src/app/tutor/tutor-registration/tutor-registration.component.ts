@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 import { UserService } from 'src/app/user/user.service';
 import { TutorService } from '../tutor.service';
@@ -14,7 +15,6 @@ import { UserPointer } from 'src/types/user-pointer';
   styleUrls: ['./tutor-registration.component.css']
 })
 export class TutorRegistrationComponent {
-
 
   constructor(private userService: UserService, private router: Router, private tutorService: TutorService) { }
 
@@ -30,7 +30,6 @@ export class TutorRegistrationComponent {
     const user: any = this.userService.user;
     const sessionToken = user.sessionToken;
 
-    
     let pointerField: UserPointer = {
       __type: 'Pointer',
       className: '_User',
@@ -38,28 +37,18 @@ export class TutorRegistrationComponent {
     }
   
     let tutorData = {...form.value, subjects: subjectsArr}  
-  
     let name = tutorData.firstName;
 
-    this.tutorService.registerTutor(tutorData, pointerField).subscribe(() => {
+    const regTutor = this.tutorService.registerTutor(tutorData, pointerField);
+    const userUpdate = this.userService.editUser({isTutor: true}, pointerId, sessionToken);
 
-      console.log('tutor registered'); //added for testing
-      this.tutorService.isUserUpdated();
-      this.tutorService.setTutorUsername(name);
-
-        this.userService.editUser({isTutor: true}, pointerId, sessionToken).subscribe(() => {
-          
-          console.log('user edited'); //added for testing
-          
-          //this.tutorService.isUserUpdated();
-          //this.tutorService.setTutorUsername(name);
-    
-        });
-        this.userService.autoLogin(); //testing
+    forkJoin({regTutor, userUpdate})
+      .subscribe(() => {
+        this.tutorService.isUserUpdated();
+        this.tutorService.setTutorUsername(name)
+        
         this.router.navigate(['/'])
-      }
-
-
-    );
+      })
+    
   }
 }
