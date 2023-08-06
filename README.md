@@ -12,7 +12,7 @@ On the home page the user can see the latest three adds on the platform.
 
 The user can access the Tutors section by clicking See Tutors and see all active adds.
 The adds on the sytem can be filtered by Subject so that only desired adds are displayed.
-If the user clears up the serach field and clicks outside of it, the whole list of adds is again displayed.
+When the user clears up the search field and clicks outside of it, the whole list of adds is displayed again.
 
 The user can review the tutor profile by clicking on View Profile.
 
