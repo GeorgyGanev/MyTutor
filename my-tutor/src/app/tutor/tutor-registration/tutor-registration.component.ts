@@ -45,6 +45,7 @@ export class TutorRegistrationComponent {
     forkJoin({regTutor, userUpdate})
       .subscribe(() => {
         this.tutorService.isUserUpdated();
+        this.userService.updateLocalStorage();
         this.tutorService.setTutorUsername(name)
         
         this.router.navigate(['/'])

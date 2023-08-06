@@ -108,4 +108,10 @@ export class UserService {
     }))
   }
 
+  updateLocalStorage(){
+    let ls: any = localStorage.getItem('[user]');
+    let obj = {...JSON.parse(ls), isTutor: true};
+    localStorage.setItem('[user]', JSON.stringify(obj));
+  }
+
 }
