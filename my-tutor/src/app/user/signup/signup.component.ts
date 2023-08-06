@@ -14,6 +14,7 @@ export class SignupComponent {
 
   isLoading = false;
   error: string = '';
+  showPassword: boolean = false;
 
   form = this.fb.group({
     email: ['', [Validators.required, emailValidator()]],
@@ -56,6 +57,8 @@ export class SignupComponent {
       });
   }
 
-  showPass(){ }
+  toggleShowPass(){ 
+    this.showPassword = !this.showPassword;
+  }
 
 }

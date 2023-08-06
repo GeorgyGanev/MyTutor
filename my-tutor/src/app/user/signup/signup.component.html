@@ -19,14 +19,14 @@
             </ng-container>
 
             <ng-container formGroupName="passGroup">
-                <input type="password" placeholder="Password" name="password" id="password" formControlName="password"  />
+                <input type="{{showPassword ? 'text' : 'password'}}" placeholder="Password" name="password" id="password" formControlName="password"  />
                 <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
                     <p  class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">Password is required!</p>
                     <p  *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']" class="error">Password must be at least {{form.get('passGroup')?.get('password')?.errors?.['minlength']['requiredLength']}} characters long!</p>
                 </ng-container>
                 
                     
-                <input type="password" placeholder="Repeat Password" name="rePassword" id="rePassword" formControlName="rePassword" />
+                <input type="{{showPassword ? 'text' : 'password'}}" placeholder="Repeat Password" name="rePassword" id="rePassword" formControlName="rePassword" />
                 <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
                     <!-- <p class="error" *ngIf="">Repeat Password required!</p> -->
                     <p class="error" *ngIf="form.get('passGroup')?.errors?.['validatePassword'] || form.get('passGroup')?.get('rePassword')?.errors?.['required']">Passwords don't match!</p>
@@ -36,7 +36,7 @@
 
         </div>
         <div class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" (click)="toggleShowPass()">
             <span>Show Password</span>
 
         </div>
