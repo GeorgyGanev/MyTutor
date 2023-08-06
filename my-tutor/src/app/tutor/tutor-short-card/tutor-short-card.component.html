@@ -9,14 +9,15 @@
                 <p class="subject">{{tutor?.subjects?.join(', ')}}</p>
             </div>
             <div class="description">
-                <p>{{tutor?.about}}</p>
+                <p>{{tutor?.about! | slice: 200}}</p>
             </div>
         </div>
         <div class="footer">
             <div class="likes">
-                <span>5 stars</span>
+                <span>Price per hour: ${{tutor?.price}}</span>
             </div>
         </div>
     </div>
+
 
 
