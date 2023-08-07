@@ -1,23 +1,31 @@
 <app-loader *ngIf="isLoading"></app-loader>
 
-<div class="card" *ngIf="!isLoading">
-    <div class="left">
-        <div class="image">
-            <img src="{{tutor?.imageUrl}}" alt="Profile Image">
+<div class="wrapper"> 
+    <div class="card" *ngIf="!isLoading">
+        <div class="left">
+            <div class="image">
+                <img src="{{tutor?.imageUrl}}" alt="Profile Image">
+            </div>
         </div>
-        <div class="link">
-            <a >View Comments</a>
-        </div>
+        <div class="right">
+            <div class="personal">
+                <p class="name">{{tutor?.firstName}} {{tutor?.lastName}}</p>
+                <p class="price-info"><span class="currency">$</span><span class="price">{{tutor?.price}}</span>/hr</p>
+            </div>
+            <p>Teaching Subjects: {{tutor?.subjects?.join(', ')}}</p>
+            <p class="education">Education Level: {{tutor?.educationLevel}}</p>
+            <p class="expirience">{{tutor?.about}}</p>
+            <!-- <p class="students-count">Students: <span class="count">15</span></p> -->
+        </div>  
     </div>
-    <div class="right">
-        <div class="personal">
-            <p class="name">{{tutor?.firstName}} {{tutor?.lastName}}</p>
-            <p class="rating">5 stars</p>
-            <p class="price-info"><span class="currency">$</span><span class="price">{{tutor?.price}}</span>/hr</p>
-        </div>
-        <p>Teaching Subjects: {{tutor?.subjects?.join(', ')}}</p>
-        <p class="education">Education Level: {{tutor?.educationLevel}}</p>
-        <p class="expirience">{{tutor?.about}}</p>
-        <p class="students-count">Students: <span class="count">15</span></p>
+    <div class="button">
+        <a (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</a>
     </div>
 </div>
+
+<app-comment-card *ngIf="showComments" [isOwner]="isOwner" />
+
+
+
+
+

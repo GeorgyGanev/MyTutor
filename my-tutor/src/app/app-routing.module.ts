@@ -46,7 +46,8 @@ const routes: Routes = [
 
   {
     path: 'tutors/:tutorId',
-    component: TutorSingleCardComponent
+    component: TutorSingleCardComponent,
+  
   },
   {
     path: 'tutor-profile',

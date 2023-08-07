@@ -6,11 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TutorListComponent } from './tutor-list/tutor-list.component';
 import { TutorLargeCardComponent } from './tutor-large-card/tutor-large-card.component';
 import { SharedModule } from '../shared/shared.module';
-import { TutorRoutingModule } from './tutor-routing-module';
 import { TutorSingleCardComponent } from './tutor-single-card/tutor-single-card.component';
 import { RouterModule } from '@angular/router';
 import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
 import { EditTutorComponent } from './edit-tutor/edit-tutor.component';
+import { CommentModule } from '../comment/comment.module';
 
 
 
@@ -30,7 +30,8 @@ import { EditTutorComponent } from './edit-tutor/edit-tutor.component';
     FormsModule,
     SharedModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommentModule
   ],
   exports: [
     TutorShortCardComponent,

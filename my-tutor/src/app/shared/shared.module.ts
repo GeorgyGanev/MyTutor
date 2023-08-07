@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
 import { SlicePipe } from './pipes/slice.pipe';
+import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 
 @NgModule({
   declarations: [
     LoaderComponent,
     EmailValidatorDirective,
-    SlicePipe
-
+    SlicePipe,
+    ElapsedTimePipe
   ],
   imports: [
     CommonModule
@@ -17,8 +18,8 @@ import { SlicePipe } from './pipes/slice.pipe';
   exports: [
     LoaderComponent,
     EmailValidatorDirective,
-    SlicePipe
-    
+    SlicePipe,
+    ElapsedTimePipe
   ]
 })
 export class SharedModule { }

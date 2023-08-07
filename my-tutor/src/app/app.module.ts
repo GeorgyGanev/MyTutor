@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
+import { CommentModule } from './comment/comment.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     SharedModule,
     TutorModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommentModule
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

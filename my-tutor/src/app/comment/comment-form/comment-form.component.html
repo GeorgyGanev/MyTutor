@@ -1,0 +1,9 @@
+<div class="form-card">
+    <form #form="ngForm" (ngSubmit)="commentHandler(form)">
+        <div class="group">
+            <p>Add your comment:</p>
+            <textarea name="comment" id="comment" ngModel required></textarea>
+        </div>
+        <button class="btn">Publish</button>
+    </form>
+</div>
