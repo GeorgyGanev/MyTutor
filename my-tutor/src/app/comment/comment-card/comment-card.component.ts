@@ -17,6 +17,7 @@ export class CommentCardComponent implements OnInit {
   constructor(private commentService: CommentService, private ar: ActivatedRoute) { }
  
   ngOnInit(): void {
+
     const id = this.ar.snapshot.params['tutorId'];
     this.commentService.getTutorComments(id)
       .subscribe((response: any) => {
@@ -28,15 +29,12 @@ export class CommentCardComponent implements OnInit {
           this.comments = response.results;
         
           this.isLoading = false;
-        }
-
-        
+        }  
       })
   }
   
   showForm(){
     this.commentService.showCommentForm = true;
-   
     
   }
 

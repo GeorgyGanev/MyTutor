@@ -19,7 +19,8 @@ export class TutorSingleCardComponent implements OnInit {
   showComments: boolean = false;
   isOwner: boolean = false;
   userId: string | undefined;
-  
+  isLogged: boolean = !!this.userService.user;
+
   constructor(private tutorService: TutorService, private activatedRoute: ActivatedRoute, private userService: UserService, private commentService: CommentService){ }
 
   ngOnInit(): void {

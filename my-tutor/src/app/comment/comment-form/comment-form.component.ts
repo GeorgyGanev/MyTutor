@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TutorService } from 'src/app/tutor/tutor.service';
 import { UserService } from 'src/app/user/user.service';
 import { Comment } from 'src/types/comment-model';
@@ -13,7 +13,7 @@ import { CommentService } from '../comment.service';
 })
 export class CommentFormComponent {
 
-  constructor(private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
+  constructor(private router: Router, private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
 
   commentHandler(form: NgForm){
 
@@ -31,6 +31,7 @@ export class CommentFormComponent {
     this.commentService.addComment(commentObj).subscribe((res) => {
      
       form.reset();
+      this.router.navigate(['/tutors'])
 
     }
     );

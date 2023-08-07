@@ -18,12 +18,14 @@
             <!-- <p class="students-count">Students: <span class="count">15</span></p> -->
         </div>  
     </div>
-    <div class="button">
+    <div class="button" *ngIf="isLogged">
         <a (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</a>
     </div>
+    <div class="button" *ngIf="!isLogged">Login to see tutor comments section</div>
 </div>
-
-<app-comment-card *ngIf="showComments" [isOwner]="isOwner" />
+<div *ngIf="isLogged">
+    <app-comment-card *ngIf="showComments" [isOwner]="isOwner" />
+</div>
 
 
 
