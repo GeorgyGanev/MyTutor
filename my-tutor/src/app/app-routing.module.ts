@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'tutors',
-    loadChildren: () => import('./tutor/tutor.module').then((m) => m.TutorModule),
+    //loadChildren: () => import('./tutor/tutor.module').then((m) => m.TutorModule),
     component: TutorListComponent
   },
 

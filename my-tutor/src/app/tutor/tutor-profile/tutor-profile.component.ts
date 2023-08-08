@@ -12,7 +12,6 @@ export class TutorProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private tutorService: TutorService) { }
 
-  //userId = this.userService.user?.objectId;
   tutor: Tutor | undefined
   notRegistered: boolean = false;
   isLoading: boolean = true;
@@ -24,26 +23,21 @@ export class TutorProfileComponent implements OnInit {
     this.userId = this.userService.user?.objectId
 
     if (this.userId === undefined) {
-      let ls = localStorage.getItem('[user]') || ''; //testing
-      let id = JSON.parse(ls).objectId; //testing
+      let ls = localStorage.getItem('[user]') || '';
+      let id = JSON.parse(ls).objectId;
       this.userId = id;
     }
     
-  
     this.tutorService.getTutorWithUserId(this.userId!)
       .subscribe((tutor: any) => {
         this.isLoading = false;
         this.tutor = tutor.results[0];
 
-        //edit undefined to 
-
         if (this.tutor === undefined) {
           this.notRegistered = true;
         }
-
       })
   }
-
 
   editProfile(){
     this.editMode = true;

@@ -1,23 +1,27 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { TutorService } from '../tutor.service';
 import { Tutor } from 'src/types/tutor-model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tutor-list',
   templateUrl: './tutor-list.component.html',
   styleUrls: ['./tutor-list.component.css']
 })
-export class TutorListComponent implements OnInit {
+export class TutorListComponent implements OnInit, OnDestroy {
 
   constructor(private tutorService: TutorService) { }
+
+  private subscription!: Subscription
 
   tutorList: Tutor[] = [];
   isLoading = true;
   filterInput: string = '';
   filterList: Tutor[] = [];
- 
+  
   ngOnInit(): void {
-  this.tutorService.getTutors().subscribe((response: any) => {
+    
+  this.subscription = this.tutorService.getTutors().subscribe((response: any) => {
 
         this.tutorList = response.results;
         this.filterList = this.tutorList;
@@ -36,5 +40,8 @@ export class TutorListComponent implements OnInit {
     this.filterList = this.tutorList; 
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }

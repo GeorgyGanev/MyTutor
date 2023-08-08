@@ -25,7 +25,6 @@ export class TutorSingleCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchTutor();  
-   
   }
 
   setUserId(id: string) {
@@ -37,21 +36,15 @@ export class TutorSingleCardComponent implements OnInit {
 
     this.tutorService.getSingleTutor(id).subscribe((tutor) => {
       this.tutor = tutor;
-
       this.setUserId(tutor.userId.objectId);
-      
       this.isLoading = false;
     })
-
   }
 
   viewComments(): void{
-   
     if (this.userId === this.userService.user?.objectId) {
       this.isOwner = true;
     }
-
     this.showComments = !this.showComments
- 
   }
 }

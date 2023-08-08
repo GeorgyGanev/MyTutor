@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TutorService } from 'src/app/tutor/tutor.service';
 import { UserService } from 'src/app/user/user.service';
 import { CommentService } from '../comment.service';
@@ -15,11 +15,10 @@ export class CommentFormComponent {
   @Output() comment: EventEmitter<any> = new EventEmitter();
 
   username: string = this.userService.user!.username || this.userService.username;
+  commentObj: any;
   
   constructor( private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
   
-  commentObj: any;
-
   commentHandler(form: NgForm){
 
     if (form.invalid) {
@@ -28,8 +27,7 @@ export class CommentFormComponent {
 
     const userId = this.userService.user?.objectId;
     const tutorId = this.ar.snapshot.params['tutorId'];
-    //const username = this.userService.user!.username;
-
+  
     this.commentObj = {
       username: this.username,
       comment: form.value.comment,
