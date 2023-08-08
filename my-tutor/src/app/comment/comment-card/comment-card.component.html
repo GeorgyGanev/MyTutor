@@ -1,5 +1,6 @@
 
     <div class="no-comments" *ngIf="noComments">No Comments!</div>
+    
     <div class="comment-wrapper" *ngFor="let comment of comments" >
         <div class="comment-card">
             <div class="content">
@@ -7,11 +8,11 @@
             </div>
             <div class="title">
                 <p class="user">Posted by: {{comment?.username}}</p>
-                <p class="date">Posted {{comment.updatedAt | elapsedTime}}</p>
+                <p class="date">Posted {{comment.createdAt | elapsedTime}}</p>
             </div>
         </div>  
     </div>
     <div *ngIf="!isLoading">
-        <app-comment-form *ngIf="!isOwner" />
+        <app-comment-form *ngIf="!isOwner" (comment)="addComment($event)" />
     </div>
 

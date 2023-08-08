@@ -52,7 +52,6 @@ export class TutorSingleCardComponent implements OnInit {
     }
 
     this.showComments = !this.showComments
-    
+ 
   }
-
 }

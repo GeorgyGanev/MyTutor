@@ -27,15 +27,12 @@ export class CommentCardComponent implements OnInit {
           this.isLoading = false;
         } else {
           this.comments = response.results;
-        
           this.isLoading = false;
         }  
       })
   }
   
-  showForm(){
-    this.commentService.showCommentForm = true;
-    
+  addComment(obj: any) {
+    this.comments.push(obj);  
   }
-
 }

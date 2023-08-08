@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorService } from 'src/app/tutor/tutor.service';
 import { UserService } from 'src/app/user/user.service';
-import { Comment } from 'src/types/comment-model';
 import { CommentService } from '../comment.service';
 
 @Component({
@@ -13,7 +12,12 @@ import { CommentService } from '../comment.service';
 })
 export class CommentFormComponent {
 
-  constructor(private router: Router, private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
+  @Output() comment: EventEmitter<any> = new EventEmitter();
+
+  username?: string = this.userService.user?.username;
+  
+  constructor( private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
+  commentObj: any;
 
   commentHandler(form: NgForm){
 
@@ -21,21 +25,26 @@ export class CommentFormComponent {
     const tutorId = this.ar.snapshot.params['tutorId'];
     const username = this.userService.user?.username;
 
-    const commentObj = {
+    this.commentObj = {
       username,
       comment: form.value.comment,
       ownerId: {__type: 'Pointer', className: '_User', objectId: userId },
       tutorId: {__type: 'Pointer', className: 'tutor', objectId: tutorId }
     }
 
-    this.commentService.addComment(commentObj).subscribe((res) => {
-     
-      form.reset();
-      this.router.navigate(['/tutors'])
-
+    this.commentService.addComment(this.commentObj).subscribe(() => {
+      form.reset(); 
     }
     );
-
-
   }
+
+  formHandler(e: any) {
+    const newComment = {
+      ...e,
+      username: this.username,
+      createdAt: new Date()
+    }
+      this.comment.emit(newComment)
+  }
+
 }

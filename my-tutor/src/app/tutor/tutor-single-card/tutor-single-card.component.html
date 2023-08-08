@@ -18,8 +18,8 @@
             <!-- <p class="students-count">Students: <span class="count">15</span></p> -->
         </div>  
     </div>
-    <div class="button" *ngIf="isLogged">
-        <a (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</a>
+    <div *ngIf="isLogged">
+        <button class="button" (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</button>
     </div>
     <div class="button" *ngIf="!isLogged">Login to see tutor comments section</div>
 </div>
