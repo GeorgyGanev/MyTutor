@@ -14,13 +14,17 @@ export class CommentFormComponent {
 
   @Output() comment: EventEmitter<any> = new EventEmitter();
 
-  username: string = this.userService.user!.username
+  username: string = this.userService.user!.username || this.userService.username;
   
   constructor( private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
   
   commentObj: any;
 
   commentHandler(form: NgForm){
+
+    if (form.invalid) {
+      return;
+    }
 
     const userId = this.userService.user?.objectId;
     const tutorId = this.ar.snapshot.params['tutorId'];
@@ -40,6 +44,9 @@ export class CommentFormComponent {
   }
 
   formHandler(e: any) {
+    if (e.comment === ''){
+      return
+    }    
     const newComment = {
       ...e,
       username: this.username,
