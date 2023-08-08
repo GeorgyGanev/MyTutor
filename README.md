@@ -23,5 +23,9 @@ By submitting the tutor registration form, the user is now listed on the app as 
 
 The user registered as tutor can access their own profile and edit the add they've submitted.
 
+The logged user can access the comment section on the tutor profile page. They can view and add new comments.
+
+The logged users cannot add comments on their own tutor profile, but can only view the comments from other users. 
+
 
 
