@@ -14,7 +14,7 @@ export class CommentFormComponent {
 
   @Output() comment: EventEmitter<any> = new EventEmitter();
 
-  username?: string = this.userService.user?.username;
+  username: string = this.userService.user!.username
   
   constructor( private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
   commentObj: any;
@@ -23,7 +23,7 @@ export class CommentFormComponent {
 
     const userId = this.userService.user?.objectId;
     const tutorId = this.ar.snapshot.params['tutorId'];
-    const username = this.userService.user?.username;
+    const username = this.userService.user!.username;
 
     this.commentObj = {
       username,
