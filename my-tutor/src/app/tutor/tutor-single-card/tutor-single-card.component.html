@@ -18,10 +18,15 @@
             <!-- <p class="students-count">Students: <span class="count">15</span></p> -->
         </div>  
     </div>
-    <div *ngIf="isLogged">
-        <button class="button" (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</button>
+    <div class="btn-wrapper">
+        <div *ngIf="isLogged">
+            <button class="button" (click)="viewComments()" >{{showComments ? 'Hide Comments' : 'View Comments'}}</button>
+        </div>
+        <a routerLink="/tutors" class="button">Go back</a>
+        <div class="button" *ngIf="!isLogged">Login to see tutor comments section</div>
     </div>
-    <div class="button" *ngIf="!isLogged">Login to see tutor comments section</div>
+
+    
 </div>
 <div *ngIf="isLogged">
     <app-comment-card *ngIf="showComments" [isOwner]="isOwner" />

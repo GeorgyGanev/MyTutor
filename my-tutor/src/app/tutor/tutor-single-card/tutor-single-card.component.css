@@ -80,12 +80,19 @@
     display: block;
     width: fit-content;
     background-color: #4a9c82;
-    margin: 1em auto;
     padding: 0.5em 2em;
     border: none;
     font-size: 18px;
     border-radius: 0.5em;
     color: white;
+    text-decoration: none;
+}
+
+.btn-wrapper {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin-bottom: 2em;
 }
 
 /* /Add-Comments section */

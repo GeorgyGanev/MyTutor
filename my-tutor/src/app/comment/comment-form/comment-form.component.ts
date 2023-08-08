@@ -17,16 +17,17 @@ export class CommentFormComponent {
   username: string = this.userService.user!.username
   
   constructor( private userService: UserService, private tutorService: TutorService, private ar: ActivatedRoute, private commentService: CommentService) {}
+  
   commentObj: any;
 
   commentHandler(form: NgForm){
 
     const userId = this.userService.user?.objectId;
     const tutorId = this.ar.snapshot.params['tutorId'];
-    const username = this.userService.user!.username;
+    //const username = this.userService.user!.username;
 
     this.commentObj = {
-      username,
+      username: this.username,
       comment: form.value.comment,
       ownerId: {__type: 'Pointer', className: '_User', objectId: userId },
       tutorId: {__type: 'Pointer', className: 'tutor', objectId: tutorId }
