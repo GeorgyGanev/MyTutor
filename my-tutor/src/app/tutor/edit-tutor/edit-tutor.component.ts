@@ -23,14 +23,15 @@ export class EditTutorComponent implements OnInit {
     subjects: ['', Validators.required],
     price: [0, Validators.required],
     educationLevel: ['', Validators.required],
-    about: ['', Validators.required]
+    about: ['', Validators.required],
+    tel: ['', Validators.required]
   })
   
   constructor(private fb: FormBuilder, private tutorService: TutorService, private router: Router) { }
 
   ngOnInit(): void {
 
-    const { firstName, lastName, imageUrl, age, subjects, price, educationLevel, about} = this.tutor!
+    const { firstName, lastName, imageUrl, age, subjects, price, educationLevel, about, tel} = this.tutor!
     
     this.form.setValue({
       firstName, 
@@ -40,7 +41,8 @@ export class EditTutorComponent implements OnInit {
        subjects: subjects.join(', '), 
        price: price,
        educationLevel,
-       about
+       about,
+       tel
     })
   }
 

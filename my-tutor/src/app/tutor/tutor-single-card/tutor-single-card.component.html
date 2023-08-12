@@ -13,9 +13,9 @@
                 <p class="price-info"><span class="currency">$</span><span class="price">{{tutor?.price}}</span>/hr</p>
             </div>
             <p>Teaching Subjects: {{tutor?.subjects?.join(', ')}}</p>
+            <p>Phone number: {{tutor?.tel}}</p>
             <p class="education">Education Level: {{tutor?.educationLevel}}</p>
             <p class="expirience">{{tutor?.about}}</p>
-            <!-- <p class="students-count">Students: <span class="count">15</span></p> -->
         </div>  
     </div>
     <div class="btn-wrapper" *ngIf="!isLoading">
