@@ -36,15 +36,19 @@ export class TutorSingleCardComponent implements OnInit {
 
     this.tutorService.getSingleTutor(id).subscribe((tutor) => {
       this.tutor = tutor;
+   
+      this.userId = tutor.userId.objectId;
       this.setUserId(tutor.userId.objectId);
       this.isLoading = false;
     })
   }
 
   viewComments(): void{
-    if (this.userId === this.userService.user?.objectId) {
+
+    if (this.userId === this.userService.user!.objectId) {
       this.isOwner = true;
     }
+  
     this.showComments = !this.showComments
   }
 }

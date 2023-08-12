@@ -33,9 +33,9 @@ export class AppInterceptor implements HttpInterceptor {
     
     return next.handle(request).pipe(
       catchError((err) => {
-        if (err.error.code === 101){
+        if (err.error?.code === 101){
           this.router.navigate(['/login']);
-        } else if (err.error.code === 203 || err.error.code === 202 ) {
+        } else if (err.error?.code === 203 || err.error?.code === 202 ) {
           this.router.navigate(['/signup'])
         } else {
           this.router.navigate(['/error'])

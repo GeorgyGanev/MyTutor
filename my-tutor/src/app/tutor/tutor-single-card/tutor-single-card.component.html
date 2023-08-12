@@ -12,9 +12,10 @@
                 <p class="name">{{tutor?.firstName}} {{tutor?.lastName}}</p>
                 <p class="price-info"><span class="currency">$</span><span class="price">{{tutor?.price}}</span>/hr</p>
             </div>
-            <p>Teaching Subjects: {{tutor?.subjects?.join(', ')}}</p>
-            <p>Phone number: {{tutor?.tel}}</p>
-            <p class="education">Education Level: {{tutor?.educationLevel}}</p>
+            <p><span class="grey">Teaching Subjects: </span>{{tutor?.subjects?.join(', ')}}</p>
+            <p><span class="grey">Phone number: </span>{{tutor?.tel}}</p>
+            <p class="education"><span class="grey">Education Level: </span>{{tutor?.educationLevel}}</p>
+            <p class="age"><span class="grey">Age: </span>{{tutor?.age}} y/o</p>
             <p class="expirience">{{tutor?.about}}</p>
         </div>  
     </div>

@@ -67,10 +67,18 @@
     font-size: 1.5em;
 }
 
-.card .right .education {
-    margin-bottom: 1.5em;
+.card .right .grey {
     color: #676969;
 }
+
+.card .right .age {
+    margin-top: auto;
+}
+
+/* .card .right .education {
+    margin-bottom: 1.5em;
+    color: #676969;
+} */
 
 .card .right .students-count {
     margin-top: 2.5em;
