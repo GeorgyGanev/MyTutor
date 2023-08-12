@@ -21,8 +21,6 @@ export class HeaderComponent {
   }
   
   get username(): any {
-    // this.tutorService.tutorUsername || this.userService.userName
-    //return this.userService.user?.username
     
     return this.userService.userName || this.userService.user?.username;
   }
@@ -32,12 +30,5 @@ export class HeaderComponent {
     this.router.navigate(['/'])
   }
 
-  // loadTutorProfile(){
-  //   const userId = this.userService.user?.objectId;
-  //   this.tutorService.getTutorWithUserId(userId!)
-  //   .subscribe((tutor) => console.log(tutor)
-  //   )
-  
-  // }
 
 }

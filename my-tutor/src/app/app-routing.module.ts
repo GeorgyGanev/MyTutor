@@ -8,7 +8,6 @@ import { TutorRegistrationComponent } from './tutor/tutor-registration/tutor-reg
 import { AuthActivate } from './core/guards/auth.activate';
 import { TutorListComponent } from './tutor/tutor-list/tutor-list.component';
 import { TutorSingleCardComponent } from './tutor/tutor-single-card/tutor-single-card.component';
-import { ErrorComponent } from './core/error/error.component';
 import { TutorProfileComponent } from './tutor/tutor-profile/tutor-profile.component';
 import { RegisterActivate } from './core/guards/register.activate';
 import { LoggedActivate } from './core/guards/logged.activate';
