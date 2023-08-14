@@ -25,6 +25,10 @@ export class CommentFormComponent {
       return;
     }
 
+    if (form.value.comment.trim() === ''){
+      return;
+    }
+
     const userId = this.userService.user?.objectId;
     const tutorId = this.ar.snapshot.params['tutorId'];
   
@@ -42,7 +46,7 @@ export class CommentFormComponent {
   }
 
   formHandler(e: any) {
-    if (e.comment === ''){
+    if (e.comment === '' || e.comment.trim() === ''){
       return
     }    
     const newComment = {
