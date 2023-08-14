@@ -43,7 +43,7 @@ export class TutorRegistrationComponent {
     const userUpdate = this.userService.editUser({isTutor: true}, pointerId, sessionToken);
 
     forkJoin({regTutor, userUpdate})
-      .subscribe(() => {
+      .subscribe((tutor) => {
         this.tutorService.isUserUpdated();
         this.userService.updateLocalStorage();
         this.tutorService.setTutorUsername(name)

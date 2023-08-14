@@ -37,8 +37,10 @@ export class TutorSingleCardComponent implements OnInit {
     this.tutorService.getSingleTutor(id).subscribe((tutor) => {
       this.tutor = tutor;
    
-      this.userId = tutor.userId.objectId;
+      //this.userId = tutor.userId.objectId;
       this.setUserId(tutor.userId.objectId);
+      this.userService.autoLogin();
+      
       this.isLoading = false;
     })
   }
